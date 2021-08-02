@@ -32,13 +32,14 @@ struct FPerceptionInfo
 UCLASS()
 class MORDHAU_API AMordhauAIController : public AAIController
 {
-
 	GENERATED_BODY()
 
 public:
 
-		AMordhauAIController(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
+	AMordhauAIController(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		TSet<class AMordhauCharacter*> ClosestEnemyIgnoreSet;
 	UPROPERTY()
 		TWeakObjectPtr<class AActor> FacingActor; //(ZeroConstructor, IsPlainOldData)
 	UPROPERTY()
@@ -121,16 +122,11 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		class UClass* Team2NavQueryFilter; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 
-
-
 	//Refuses to Compile
 // 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 // 		TEnumAsByte<ECrowdAvoidanceQuality::Type> AvoidanceQuality; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 // 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 // 		ECrowdSimulationState SimulationState; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldDat
-
-
-
 
 	UFUNCTION(BlueprintCallable)
 		void UpdatePerceptionInfo(class AAdvancedCharacter* InCharacter, struct FPerceptionInfo& PerceptionInfo);

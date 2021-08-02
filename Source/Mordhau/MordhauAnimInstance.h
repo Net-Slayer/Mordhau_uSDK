@@ -9,55 +9,54 @@
 #include "MordhauAnimInstance.generated.h"
 
 /**
- * 
- */
+*
+*/
 USTRUCT(BlueprintType)
 struct FFacialBoneSetup
 {
 	GENERATED_BODY()
 public:
-		UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FName                                       BoneName;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FName                                       SelectionBoneOverride;
+		FName BoneName;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool                                               bIsSymmetrical;
+		FName SelectionBoneOverride;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              SelectionBiasFactor;
+		bool bIsSymmetrical;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TArray<FName>                               ChildBones;
+		float SelectionBiasFactor;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int                                                Level;
+		TArray<FName> ChildBones;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int                                                SymmetryTwinBoneIndex;
+		int Level;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FName                                       SymmetryTwinBoneName;
+		int SymmetryTwinBoneIndex;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int                                                BoneIndex;
+		FName SymmetryTwinBoneName;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector2D                                   TranslateXRange;
+		int BoneIndex;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector2D                                   TranslateYRange;
+		struct FVector2D TranslateXRange;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector2D                                   TranslateZRange;
+		struct FVector2D TranslateYRange;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector2D                                   ScaleXRange;
+		struct FVector2D TranslateZRange;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector2D                                   ScaleYRange;
+		struct FVector2D ScaleXRange;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector2D                                   ScaleZRange;
+		struct FVector2D ScaleYRange;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector2D                                   RotateXRange;
+		struct FVector2D ScaleZRange;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector2D                                   RotateYRange;
+		struct FVector2D RotateXRange;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector2D                                   RotateZRange;
-
+		struct FVector2D RotateYRange;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector2D RotateZRange;
 };
 /*USTRUCT(BlueprintType)
 struct FFloatSpringState
 {
-	GENERATED_BODY()
+GENERATED_BODY()
 };*/
 USTRUCT(BlueprintType)
 struct FAnimNodePackedDismemberment
@@ -65,7 +64,7 @@ struct FAnimNodePackedDismemberment
 	GENERATED_BODY()
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		TArray<int>                                        DismemberedBonesIndices;
+		TArray<int> DismemberedBonesIndices;
 };
 USTRUCT(BlueprintType)
 struct FAnimNodePackedFaceCustomization
@@ -73,641 +72,658 @@ struct FAnimNodePackedFaceCustomization
 	GENERATED_BODY()
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TArray<struct FFacialBoneSetup>                    FaceCustomizationSetup;
+		TArray<struct FFacialBoneSetup> FaceCustomizationSetup;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TArray<struct FTransform>                          FaceCustomizationBonesTransforms;
+		TArray<struct FTransform> FaceCustomizationBonesTransforms;
 };
 UCLASS(Blueprintable)
 class MORDHAU_API UMordhauAnimInstance : public UCreatureAnimInstance
 {
 	GENERATED_BODY()
-	
+
 public:
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              InternalScaledTimeSeconds;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FAnimNodePackedFaceCustomization            FaceCustomization;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FAnimNodePackedDismemberment                Dismemberment;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TWeakObjectPtr<class AMordhauEquipment>            PreviousRightHandEquipment;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TArray<class UParticleSystem*>                     CrouchFootstepParticles;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TArray<class UParticleSystem*>                     SprintFootstepParticles;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class USoundCue*                                   FootstepSound;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FName                                       MainAnimationType;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool                                               bWasRagdollFalling;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              LastRagdollFallingTime;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Force1PMeshCorrectionWeight;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool                                               bShouldPerformInstantAnimSwitch;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool                                               bIsGetUpFront;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              GetUpAnimationDuration;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    GetUpRotation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	uint8                                      DeathSyncedRandom;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              IsDedicatedServer;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              AnimLOD0;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              AnimLOD1;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              RecentlyRendered;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              RecentlyRenderedNonAuth;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              AnimLOD0Distance;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              AnimLOD1Distance;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              IsFemale;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool                                               bIsClimbingA;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     ClimbOffsetA;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     ClimbOffsetEndOffsetA;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     ClimbLedgeOffsetA;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              IsSlowClimbingA;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    ClimbRotationA;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool                                               bIsClimbingB;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     ClimbOffsetB;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     ClimbOffsetEndOffsetB;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     ClimbLedgeOffsetB;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    ClimbRotationB;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              IsSlowClimbingB;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              FastSmoothedIsCrouching;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              UnclampedFastSmoothedIsCrouching;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FFloatSpringState                           CrouchSpringState;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector2D                                   CrouchSpringLimits;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              CrouchSpringStiffness;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              UncrouchSpringStiffness;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              CrouchSpringDamping;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              CrouchSpringMass;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UAnimSequence*                               VehicleTransitionAnimation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              VehicleTransitionBlendWeight;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     VehicleTransitionComponentLocation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    VehicleTransitionComponentRotation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              IsDrivingFloat;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    LowerBodyRotationOffset;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Direction;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    MovementCorrectionHips;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              MovementCorrectionHipsInterpSpeed;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              MovementCorrectionAnimRate;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              DirectionWithOffset;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              DirectionOffset;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              DirectionOffsetSlowInterpSpeed;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              DirectionOffsetSlow;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Velocity;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              SmoothedVelocity;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              OneToZeroAtWalkSpeed;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              AnimRateFactor1PMaxSprint;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              MovementSpeedScale;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              MovementAnimRate;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              SpeedWarping;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              ThirdPersonVelocity;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool                                               bUseBackBlendSpace;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    StopBounce;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    StopBounceWorld;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              StopBounceLimit;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              BounceInterpSpeed;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     BounceDuck;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              BounceDuckLimit;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              SlowVelocityLagTime;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              FastVelocityLagTime;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              StopTiltFactor;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              StopDuckFactor;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              AngularVelocityInterpSpeed;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              AngularVelocity;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              AbsoluteAngularVelocityLowerBody;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              AngularVelocityLowerBody;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              AngularVelocityLowerBodyWindow;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     AnimatedMovementDirectionInCompSpace;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              AngularVelocityPitch;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector2D                                   SpringPitchYawValue;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FFloatSpringState                           PitchSpringState;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FFloatSpringState                           YawSpringState;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector2D                                   SpringPitchYawStiffness;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector2D                                   SpringPitchYawDamping;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector2D                                   SpringPitchYawMass;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              HandSpringWeight;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool                                               bIsFirstPerson;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              IsFirstPersonFloat;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              IsNotFirstPersonFloat;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     FirstPersonZoomOffset;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     CameraCollisionOffset;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FTransform                                  RightWeaponBoneBaseTransform;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     WeaponSlideVector;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     WeaponSlideVectorInverse;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              WeaponSlideCompensationWeight;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     RightShoulderOffset1P;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     LeftShoulderOffset1P;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              ShoulderOffset1PWeight;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     RightHandIKOffset;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              RightHandIKOffsetWeight;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              OffhandIKWeight;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     LeftHandGripPosition;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     RightHandGripPosition;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    RightHandGripRotation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              OffhandIsRightHand;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UAnimSequence*                               JumpAnimation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UAnimSequence*                               FallingAnimation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UAnimSequence*                               LandAnimation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              BouncyMagnitudeOffset;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              BouncySlowVelocityLagTime;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              BouncyFastVelocityLagTime;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              BouncyInterpSpeed;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              BouncyFactorBreasts;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              BouncyFactorArms;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              BouncyFactorBelly;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              BouncyFactorLegs;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     BreastsT;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     LowerBackBellyT;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     SpineAdjustT;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     LeftArmAdjustT;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     RightArmAdjustT;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     LeftUpLegAdjustT;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     RightUpLegAdjustT;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Fat;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Skinny;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Strong;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              IsHeadDismembered;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    NeckDismemberedRotation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    LeftShoulderDismemberedRotation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              IsLeftArmDismembered;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    RightShoulderDismemberedRotation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              IsRightArmDismembered;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              TrackingWeight;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    LookingAtRotationNeck;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    LookingAtRotationHead;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    LookingAtRotationEyes;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              HideEars;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              HideNose;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Breath;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              LowerBodyBreathInternal;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              LowerBodyBreathFactor;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              LowerBodyBreathFactorTarget;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              CounterCompensateLookWeight;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    CounterCompensateRotation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              LookUpValue;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              RightLegBendBlendWeight;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              SpineBendBlendWeight;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              SpineArmsCompensationFactor;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              TurnValue;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              LeftHandIsEmpty;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              AtmosphericsWeight;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Arms3PSyncWeight;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              BlockDirection;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              DisarmDirection;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FSpineSpaceAdditive                         SpineSpaceAdditive;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              LeftTorsoBlendWeight;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UAnimSequence*                               LeftStabBounce;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UAnimSequence*                               RightStabBounce;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UAnimSequence*                               LeftStrikeBounce;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UAnimSequence*                               RightStrikeBounce;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UAnimSequence*                               RightStabChambered;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UAnimSequence*                               LeftStabChambered;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UBlendSpaceBase*                             RangedDrawnAdditive;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    SwayRotation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              SwayWeight;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UBlendSpaceBase*                             ParryAdditive;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UBlendSpaceBase*                             ParryPushAdditive;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UBlendSpaceBase*                             AltParryPushAdditive;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              LowerBodyBlendSpaceBlendTime;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UBlendSpaceBase*                             UpperBlendSpaceA;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              UpperBlendSpaceABlendTime;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UAnimSequence*                               UpperAdditiveA;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UBlendSpaceBase*                             UpperBlendSpaceB;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              UpperBlendSpaceBBlendTime;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UAnimSequence*                               UpperAdditiveB;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool                                               bIsCurrentUpperA;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UAnimSequence*                               LowerBodyAnimationA;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UAnimSequence*                               LowerBodyAnimationB;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UAnimSequence*                               HorseUpperRearing;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool                                               bIsCurrentLowerA;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool                                               bIsHorseRearing;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Couching;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Rearing;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Lean;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              VehicleAnimTime;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              VehicleAnimRate;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     VehicleLeftHandTarget;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     VehicleRightHandTarget;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              VehicleTurn;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              VehicleLookUp;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     VehicleLeftFootTarget;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     VehicleRightFootTarget;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    VehicleLeftFootRotation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    VehicleRightFootRotation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              VehicleVelocity;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              VehicleDirection;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     VehicleSeat;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    VehicleActorRotation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    VehicleRotationOffset;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    VehicleSeatRotation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool                                               bBallistaReloading;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              HitEffectIKWeight;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              HitEffectLocationSlideSpeed;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              HitEffectDisableSpeed;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     HitEffectIKLocation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     HitEffectIKLocationStart;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    HitEffectRotation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    HitEffectRotationStart;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              FlinchFreezeBlendInDuration;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              FlinchFreezeRotationBlendInSpeed;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              FlinchFreezeTranslationBlendInSpeed;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              FlinchFreezeBlendInAlpha;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              FlinchBlendInDuration;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              FlinchRotationBlendInSpeed;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              FlinchTranslationBlendInSpeed;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              FlinchRotationBlendOutSpeed;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              FlinchTranslationBlendOutSpeed;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              FlinchRotationBlendOutSpeedFast;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              FlinchTranslationBlendOutSpeedFast;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              FlinchPitchAmount;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              FlinchYawAmount;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              FlinchPitchYawFactor;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              FlinchHipsZFactor;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              WeaponDirHipsZFactor;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              TranslationNonHipsFactor;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    FlinchRotationTarget;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     FlinchTranslationTarget;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     FlinchHipsTranslationTarget;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int                                                FlinchHitSpineIdx;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              FlinchStartTime;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    CurrentFlinchSpineRotationsCombined;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    HipsFlinchRotation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     HipsFlinchTranslation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     HipsFlinchTranslationInternal;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    LowerBackFlinchRotation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     LowerBackFlinchTranslation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    SpineFlinchRotation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     SpineFlinchTranslation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    Spine1FlinchRotation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     Spine1FlinchTranslation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    NeckFlinchRotation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     NeckFlinchTranslation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    HeadFlinchRotation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     HeadFlinchTranslation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Helper_UBCrouchAlpha;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Helper_LBCrouchAlpha;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    Helper_UBCrouchSpine;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    Helper_UBCrouchForearms;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    Helper_UBCrouchArms;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    Helper_UBCrouchHead;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    Helper_UBCrouchShoulder;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Helper_UBSpineArmsCompensationAlpha;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    Helper_UBSpineArmsCompensationRotator;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool                                               bHelper_LBFootShuffling;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Helper_LBFootShufflingPlayRate;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool                                               bHelper_LBFootShufflingRight;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    Helper_LBDirectionOffsetSlowRotator;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    Helper_LBDirectionOffsetSlowRotatorInverse;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     Helper_LBDirectionOffsetSlowHipsZ;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     Helper_LBDirectionOffsetSlowHipsZInverse;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    Helper_LBDirectionOffsetSlowFootRotationOffset;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Helper_UBVelocity;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool                                               bHelper_LBVelocityIsZero;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     Helper_LBCrouchOffset;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     Helper_LBCrouchOffsetInverse;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Helper_LBHipsZOverrideAlpha;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Helper_TrackingWeightAlpha;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Helper_BreathAlpha;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Helper_IsNotDrivingFloat;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     Helper_HipsFlinchTranslationInverse;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    Helper_HipsFlinchRotationInverse;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    Helper_ArmsShoulderFlinchInverse;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Helper_FirstPersonNotDead;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     Helper_FirstPersonZoomOffsetInverse;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     Helper_FirstPersonZoomOffsetAndCollision;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     Helper_CameraCollisionOffsetWithNot3PArmsSync;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Helper_FirstPersonNotDeadWith3PArmsSync;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Helper_IsNotFemale;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Helper_SpineBendBlendWeightHalf;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Helper_SpineBendBlendWeightThird;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    Helper_GroundingRightFootRotationOffset;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    Helper_GroundingLeftFootRotationOffset;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     Helper_GroundingRightFootTranslationOffset;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     Helper_GroundingLeftFootTranslationOffset;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              NotFirstPersonWithAtmospherics;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    Helper_FaceUpperLids;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Helper_LeftHandIKWeight;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Helper_RightHandIKWeight;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    Helper_RootRotationOffsetInverse;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Helper_StopBounceMediumWeight;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Helper_StopBounceLightWeight;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    Helper_StopBounceInverse;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    Helper_StopBounceHips;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     Helper_BounceDuckWithBounceWeight;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                    Helper_BounceDuckWithBounceWeightInverse;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    Helper_SpineBendRotation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    Helper_HipsBendRotation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Helper_SpineBendRotationAlpha;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    Helper_RightLegBendRotation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    Helper_ArmsBendRotation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              AtmosphericsWeightWithAnimLOD0;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    Helper_LowerBodyRotationOffsetInverse;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     Helper_RightWeaponBoneBaseTranslation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    Helper_RightWeaponBoneBaseRotation;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FRotator                                    Helper_SpringPitchYawValueRotator;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Helper_HandSpringWeight;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Helper_ShoulderOffset1PWith1PWeight;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Helper_JiggleBouncyWeight;
-	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		int CreatedFrame; //(ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		int LastUpdateFrame; //(ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float InternalScaledTimeSeconds; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float MeshRelativeZScale; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FAnimNodePackedFaceCustomization FaceCustomization; //(BlueprintVisible, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FAnimNodePackedDismemberment Dismemberment; //(BlueprintVisible, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TWeakObjectPtr<class AMordhauEquipment> PreviousRightHandEquipment; //(ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TWeakObjectPtr<class AMordhauEquipment> MainEquipmentPtr; //(ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		FName MainAnimationType; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		bool bWasRagdollFalling; //(ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float LastRagdollFallingTime; //(ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Force1PMeshCorrectionWeight; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		bool bShouldPerformInstantAnimSwitch; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		bool bIsGetUpFront; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float GetUpAnimationDuration; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator GetUpRotation; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		uint8 DeathSyncedRandom; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float IsDedicatedServer; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float AnimLOD0; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float AnimLOD1; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float RecentlyRendered; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float RecentlyRenderedNonAuth; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float AnimLOD0Distance; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float AnimLOD1Distance; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float IsFemale; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		bool bIsClimbingA; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector ClimbOffsetA; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector ClimbOffsetEndOffsetA; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector ClimbLedgeOffsetA; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float IsSlowClimbingA; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator ClimbRotationA; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		bool bIsClimbingB; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector ClimbOffsetB; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector ClimbOffsetEndOffsetB; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector ClimbLedgeOffsetB; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator ClimbRotationB; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float IsSlowClimbingB; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float FastSmoothedIsCrouching; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float UnclampedFastSmoothedIsCrouching; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FFloatSpringState CrouchSpringState;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float ServerCrouchSpeed; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector2D CrouchSpringLimits; //(Edit, BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float CrouchSpringStiffness; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float UncrouchSpringStiffness; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float CrouchSpringDamping; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float CrouchSpringMass; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* VehicleTransitionAnimation; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float VehicleTransitionBlendWeight; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector VehicleTransitionComponentLocation; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator VehicleTransitionComponentRotation; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float IsDrivingFloat; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator LowerBodyRotationOffset; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Direction; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator MovementCorrectionHips; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float MovementCorrectionHipsInterpSpeed; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float MovementCorrectionAnimRate; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float DirectionWithOffset; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float DirectionOffset; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float DirectionOffsetSlowInterpSpeed; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float DirectionOffsetSlow; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Velocity; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float SmoothedVelocity; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float OneToZeroAtWalkSpeed; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float AnimRateFactor1PMaxSprint; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float MovementSpeedScale; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float MovementAnimRate; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float SpeedWarping; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float ThirdPersonVelocity; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		bool bUseBackBlendSpace; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator StopBounce; //(Edit, BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator StopBounceWorld; //(IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float StopBounceLimit; //(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector2D BounceInterpSpeedIn; //(Edit, BlueprintVisible, DisableEditOnInstance, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector2D BounceInterpSpeedOut; //(Edit, BlueprintVisible, DisableEditOnInstance, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector BounceDuck; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float BounceDuckLimit; //(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float SlowVelocityLagTime; //(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float FastVelocityLagTime; //(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float StopTiltFactor; //(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float StopDuckFactor; //(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float AngularVelocityInterpSpeed; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float AngularVelocity; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float AbsoluteAngularVelocityLowerBody; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float AngularVelocityLowerBody; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float AngularVelocityLowerBodyWindow; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector AnimatedMovementDirectionInCompSpace; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float AngularVelocityPitch; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector2D SpringPitchYawValue; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FFloatSpringState PitchSpringState;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FFloatSpringState YawSpringState;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector2D SpringPitchYawStiffness; //(Edit, BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector2D SpringPitchYawDamping; //(Edit, BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector2D SpringPitchYawMass; //(Edit, BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float HandSpringWeight; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		bool bIsFirstPerson; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float IsFirstPersonFloat; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float IsNotFirstPersonFloat; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector CameraCollisionOffset; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FTransform RightWeaponBoneBaseTransform; //(Edit, BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector WeaponSlideVector; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector WeaponSlideVectorInverse; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float WeaponSlideCompensationWeight; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector RightShoulderOffset1P; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector LeftShoulderOffset1P; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float ShoulderOffset1PWeight; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector LeftShoulderIdleOffset1P; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector RightHandIKOffset; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float RightHandIKOffsetWeight; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float OffhandIKWeight; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FTransform OffhandSlidingAxis; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		bool bIsOffhandFixedTarget; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector OffhandFixedTargetVector; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector LeftHandGripPosition; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector RightHandGripPosition; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator RightHandGripRotation; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float OffhandIsRightHand; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* JumpAnimation; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* FallingAnimation; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* LandAnimation; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float BouncyMagnitudeOffset; //(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float BouncySlowVelocityLagTime; //(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float BouncyFastVelocityLagTime; //(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* SkinnyPose; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* FatPose; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* StrongPose; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float BouncyInterpSpeed; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float BouncyFactorBreasts; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float BouncyFactorArms; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float BouncyFactorBelly; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float BouncyFactorLegs; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector BreastsT; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector LowerBackBellyT; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector SpineAdjustT; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector LeftArmAdjustT; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector RightArmAdjustT; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector LeftUpLegAdjustT; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector RightUpLegAdjustT; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float IsTankFloat; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float IsDwarfFloat; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float DwarfSlowerAnimSpeedFactor; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Fat; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Skinny; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Strong; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float IsHeadDismembered; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator NeckDismemberedRotation; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator LeftShoulderDismemberedRotation; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float IsLeftArmDismembered; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator RightShoulderDismemberedRotation; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float IsRightArmDismembered; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float IsAnythingDismembered; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float TrackingWeight; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator LookingAtRotationNeck; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator LookingAtRotationHead; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator LookingAtRotationEyes; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float HideEars; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float HideNose; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		class UCurveFloat* BreathCurve; //(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector2D HealthToBreathDuration; //(Edit, DisableEditOnInstance, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Breath; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float CounterCompensateLookWeight; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator CounterCompensateRotation; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float LookUpValue; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float RightLegBendBlendWeight; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float SpineBendBlendWeight; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float SpineArmsCompensationFactor; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float TurnValue; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float LeftHandIsEmpty; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float AtmosphericsWeight; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Arms3PSyncWeight; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float BlockDirection; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float DisarmDirection; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FSpineSpaceAdditive SpineSpaceAdditive; //(BlueprintVisible)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float LeftTorsoBlendWeight; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* AttackBounce; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		class UBlendSpaceBase* RangedDrawnAdditive; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator SwayRotation; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float SwayWeight; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		class UBlendSpaceBase* ParryAdditive; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		class UBlendSpaceBase* ParryPushAdditive; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		class UBlendSpaceBase* AltParryPushAdditive; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float LowerBodyBlendSpaceBlendTime; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		class UBlendSpaceBase* UpperBlendSpaceA; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float UpperBlendSpaceABlendTime; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* UpperAdditiveA; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		class UBlendSpaceBase* UpperBlendSpaceB; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float UpperBlendSpaceBBlendTime; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* UpperAdditiveB; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		bool bIsCurrentUpperA; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* LowerBodyAnimationA; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* LowerBodyAnimationB; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* HorseUpperRearing; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		bool bIsCurrentLowerA; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		bool bIsHorseRearing; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Couching; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Rearing; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Lean; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float VehicleAnimTime; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float VehicleAnimRate; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector VehicleLeftHandTarget; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector VehicleRightHandTarget; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float VehicleTurn; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float VehicleLookUp; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector VehicleLeftFootTarget; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector VehicleRightFootTarget; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator VehicleLeftFootRotation; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator VehicleRightFootRotation; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float VehicleVelocity; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float VehicleDirection; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector VehicleSeat; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator VehicleActorRotation; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator VehicleRotationOffset; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator VehicleSeatRotation; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		bool bBallistaReloading; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float HitEffectIKWeight; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float HitEffectLocationSlideSpeed; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float HitEffectDisableSpeed; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector HitEffectIKLocation; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector HitEffectIKLocationStart; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator HitEffectRotation; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator HitEffectRotationStart; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float FlinchFreezeBlendInDuration; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float FlinchFreezeRotationBlendInSpeed; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float FlinchFreezeTranslationBlendInSpeed; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float FlinchFreezeBlendInAlpha; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float FlinchBlendInDuration; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float FlinchRotationBlendInSpeed; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float FlinchTranslationBlendInSpeed; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float FlinchRotationBlendOutSpeed; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float FlinchTranslationBlendOutSpeed; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float FlinchRotationBlendOutSpeedFast; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float FlinchTranslationBlendOutSpeedFast; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float FlinchPitchAmount; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float FlinchYawAmount; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float FlinchPitchYawFactor; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float FlinchHipsZFactor; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float WeaponDirHipsZFactor; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float TranslationNonHipsFactor; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator FlinchRotationTarget; //(IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector FlinchTranslationTarget; //(IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector FlinchHipsTranslationTarget; //(IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		int FlinchHitSpineIdx; //(ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float FlinchStartTime; //(ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator CurrentFlinchSpineRotationsCombined; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator HipsFlinchRotation; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector HipsFlinchTranslation; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector HipsFlinchTranslationInternal; //(IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator LowerBackFlinchRotation; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector LowerBackFlinchTranslation; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator SpineFlinchRotation; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector SpineFlinchTranslation; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator Spine1FlinchRotation; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector Spine1FlinchTranslation; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator NeckFlinchRotation; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector NeckFlinchTranslation; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator HeadFlinchRotation; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector HeadFlinchTranslation; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Helper_WeaponSlideVectorIsNonzero; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Helper_UBCrouchAlpha; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Helper_LBCrouchAlpha; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator Helper_UBCrouchSpine; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator Helper_UBCrouchForearms; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator Helper_UBCrouchArms; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator Helper_UBCrouchHead; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator Helper_UBCrouchShoulder; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Helper_UBSpineArmsCompensationAlpha; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator Helper_UBSpineArmsCompensationRotator; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		bool bHelper_LBFootShuffling; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Helper_LBFootShufflingPlayRate; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		bool bHelper_LBFootShufflingRight; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator Helper_LBDirectionOffsetSlowRotator; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator Helper_LBDirectionOffsetSlowRotatorInverse; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector Helper_LBDirectionOffsetSlowHipsZ; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector Helper_LBDirectionOffsetSlowHipsZInverse; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator Helper_LBDirectionOffsetSlowFootRotationOffset; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Helper_UBVelocity; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		bool bHelper_LBVelocityIsZero; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector Helper_LBCrouchOffset; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector Helper_LBCrouchOffsetInverse; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Helper_LBHipsZOverrideAlpha; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Helper_TrackingWeightAlpha; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Helper_BreathAlpha; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Helper_IsNotDrivingFloat; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Helper_IsAnyFlinchValueNonZero; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector Helper_HipsFlinchTranslationInverse; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator Helper_HipsFlinchRotationInverse; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator Helper_ArmsShoulderFlinchInverse; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Helper_FirstPersonNotDead; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector Helper_FirstPersonZoomOffsetAndCollision; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector Helper_CameraCollisionOffsetWithNot3PArmsSync; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Helper_FirstPersonNotDeadWith3PArmsSync; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Helper_IsNotFemale; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Helper_SpineBendBlendWeightHalf; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Helper_SpineBendBlendWeightThird; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator Helper_GroundingRightFootRotationOffset; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator Helper_GroundingLeftFootRotationOffset; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector Helper_GroundingRightFootTranslationOffset; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector Helper_GroundingLeftFootTranslationOffset; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float NotFirstPersonWithAtmospherics; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float NotFirstPersonWithAtmosphericsAndAnimLOD1; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator Helper_FaceUpperLids; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Helper_LeftHandIKWeight; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Helper_RightHandIKWeight; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator Helper_RootRotationOffsetInverse; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Helper_StopBounceMediumWeight; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Helper_StopBounceLightWeight; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator Helper_StopBounceInverse; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator Helper_StopBounceHips; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector Helper_BounceDuckWithBounceWeight; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector Helper_BounceDuckWithBounceWeightInverse; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator Helper_SpineBendRotation; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator Helper_HipsBendRotation; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Helper_SpineBendRotationAlpha; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator Helper_RightLegBendRotation; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator Helper_ArmsBendRotation; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float AtmosphericsWeightWithAnimLOD0; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator Helper_LowerBodyRotationOffsetInverse; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FVector Helper_RightWeaponBoneBaseTranslation; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator Helper_RightWeaponBoneBaseRotation; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		struct FRotator Helper_SpringPitchYawValueRotator; //(BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Helper_HandSpringWeight; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Helper_ShoulderOffset1PWith1PWeight; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Helper_JiggleBouncyWeight; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
 };

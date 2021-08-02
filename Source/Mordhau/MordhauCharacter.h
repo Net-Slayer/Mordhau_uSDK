@@ -106,7 +106,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MordhauChar|Booleans")
 		bool bWasHitAfterDeath;
 
-
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MordhauChar|ClassRefs")
+		class UMordhauMotion* Motion;   //(ZeroConstructor, IsPlainOldData)
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MordhauChar|ClassRefs")
 		class AControlPoint* CurrentCapturePoint;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MordhauChar|ClassRefs")

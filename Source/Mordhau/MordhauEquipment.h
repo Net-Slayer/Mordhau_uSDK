@@ -5,11 +5,12 @@
 #include "CoreMinimal.h"
 #include "MordhauActor.h"
 #include "Mordhau.h"
+#include "MordhauProjectile.h"
 #include "MordhauEquipment.generated.h"
 
 /**
- *
- */
+*
+*/
 UCLASS(Blueprintable)
 class MORDHAU_API AMordhauEquipment : public AMordhauActor
 {
@@ -20,858 +21,858 @@ public:
 	AMordhauEquipment();
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                    bForceRefPoseOnMesh;
+		bool bForceRefPoseOnMesh;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              CreatedRealTime;
+		float CreatedRealTime;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		struct FTransform                                  DefaultMeshRelativeTransform;
+		struct FTransform DefaultMeshRelativeTransform;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		int                                                HideInGameOverride;
+		int HideInGameOverride;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		struct FTransform                                  EquippedOffset;
+		struct FTransform EquippedOffset;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bUseEquippedOffset;
+		bool bUseEquippedOffset;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bCanThrowPommel;
+		bool bCanThrowPommel;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bSecondUseEquippedOffset;
+		bool bSecondUseEquippedOffset;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bIsHeldInHand;
+		bool bIsHeldInHand;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bIsParentInFirstPerson;
+		bool bIsParentInFirstPerson;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		FName                                       AttachedToSocket;
+		FName AttachedToSocket;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bWantsToRebuildParts;
+		bool bWantsToRebuildParts;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		uint8                                      LastOwnerTeam;
+		uint8 LastOwnerTeam;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bForceTeamColor1;
+		bool bForceTeamColor1;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bTakesHuntsmanDamage;
+		bool bTakesHuntsmanDamage;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bForceTeamColor2;
+		bool bForceTeamColor2;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bHasColor1;
+		bool bHasColor1;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bHasColor2;
+		bool bHasColor2;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bHasColor3;
+		bool bHasColor3;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		TArray<class UMordhauEquipmentPart*>             PartInstances;//tsubclass
+		TArray<class UMordhauEquipmentPart*> PartInstances;//tsubclass
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		TWeakObjectPtr<class AMordhauCharacter>            ParentCharacter;
+		TWeakObjectPtr<class AMordhauCharacter> ParentCharacter;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		TWeakObjectPtr<class AMordhauCharacter>            YoinkTrackingParentCharacter;
+		TWeakObjectPtr<class AMordhauCharacter> YoinkTrackingParentCharacter;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bWasLastParentCharacterLocalPlayer;
+		bool bWasLastParentCharacterLocalPlayer;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bHeldInteractIsSwap;
+		bool bHeldInteractIsSwap;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		EEquipmentType                                     EquipmentUIType;
+		EEquipmentType EquipmentUIType;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		EEquipmentCategory                                 EquipmentUICategory;
+		EEquipmentCategory EquipmentUICategory;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		FText                                       EquipmentName;
+		FText EquipmentName;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bIsRightHanded;
+		bool bIsRightHanded;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bSecondIsRightHanded;
+		bool bSecondIsRightHanded;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bIsTwoHanded;
+		bool bIsTwoHanded;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bSecondIsTwoHanded;
+		bool bSecondIsTwoHanded;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              EquipTimeModifier;
+		float EquipTimeModifier;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bRangedActionAllowsRegen;
+		bool bRangedActionAllowsRegen;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              RangedDrawFOVOffset;
+		float RangedDrawFOVOffset;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UCurveVector*                                RangedDrawSway;
+		class UCurveVector* RangedDrawSway;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bIsRangedSwayCameraBased;
+		bool bIsRangedSwayCameraBased;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		struct FVector                                     RangedAirborneSway;
+		struct FVector RangedAirborneSway;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              RangedAirborneSwayBlendInSpeed;
+		float RangedAirborneSwayBlendInSpeed;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              RangedAirborneSwayBlendOutSpeed;
+		float RangedAirborneSwayBlendOutSpeed;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		struct FVector2D                                   RangedDrawSwayLoopSegment;
+		struct FVector2D RangedDrawSwayLoopSegment;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              RangedDrawTremblingStartAfter;
+		float RangedDrawTremblingStartAfter;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              RangedDrawTremblingMaxAfter;
+		float RangedDrawTremblingMaxAfter;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              RangedDrawTremblingMagnitude;
+		float RangedDrawTremblingMagnitude;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              RangedDrawTremblingFrequency;
+		float RangedDrawTremblingFrequency;
 
 	UPROPERTY(Replicated, VisibleAnywhere, BlueprintReadWrite)
-		class USkeletalMeshComponent*                      SkeletalMeshComponent;
+		class USkeletalMeshComponent* SkeletalMeshComponent;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class USkeletalMeshComponent*                      AuxiliarySkeletalMeshComponent;
+		class USkeletalMeshComponent* AuxiliarySkeletalMeshComponent;
 
 	//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-	   //EAuxiliaryMeshMode                                 AuxiliaryMeshMode;
+	//EAuxiliaryMeshMode AuxiliaryMeshMode;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		struct FTransform                                  AuxiliaryMeshOffset;
+		struct FTransform AuxiliaryMeshOffset;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		struct FTransform                                  DefaultAuxiliaryMeshRelativeTransform;
+		struct FTransform DefaultAuxiliaryMeshRelativeTransform;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class USkeletalMesh*                               CombinedSkeletalMesh;
+		class USkeletalMesh* CombinedSkeletalMesh;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bIsFollowingProjectile;
+		bool bIsFollowingProjectile;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		uint8                      EquipmentPhysicalSurface;
+		uint8 EquipmentPhysicalSurface;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class AMordhauProjectile*                          CurrentProjectile;
+		class AMordhauProjectile* CurrentProjectile;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UClass*                                      ProjectileClass;
+		class UMordhauProjectile* ProjectileClass;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		TArray<class UClass*>                              RestockAmmoForEquipment;
+		TArray<class UClass*> RestockAmmoForEquipment;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bCanRestockFromEquipmentDefaults;
+		bool bCanRestockFromEquipmentDefaults;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		int                                                MaxAmmoBoxRestockAmount;
+		int MaxAmmoBoxRestockAmount;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class APhysicsProxy*                               PhysicsProxy;
+		class APhysicsProxy* PhysicsProxy;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class UPhysicsAsset*                               PhysicsAsset;
+		class UPhysicsAsset* PhysicsAsset;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bDoNotDisarmOnMeleeWeaponHit;
+		bool bDoNotDisarmOnMeleeWeaponHit;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bCannotChaseOthers;
+		bool bCannotChaseOthers;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bCanBeChasedFromFront;
+		bool bCanBeChasedFromFront;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bCanRagdoll;
+		bool bCanRagdoll;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bUsesPhysicsProxy;
+		bool bUsesPhysicsProxy;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bOnlyPeasants;
+		bool bOnlyPeasants;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bIsAllowedForPeasants;
+		bool bIsAllowedForPeasants;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		struct FTransform                                  ArmoryTransformOffset;
+		struct FTransform ArmoryTransformOffset;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		int                                                CharacterPointCost;
+		int CharacterPointCost;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              CullDistanceHeld;
+		float CullDistanceHeld;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              CullDistanceNotHeld;
+		float CullDistanceNotHeld;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              CullDistanceAuxiliaryHeld;
+		float CullDistanceAuxiliaryHeld;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              CullDistanceAuxiliaryNotHeld;
+		float CullDistanceAuxiliaryNotHeld;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bForceInstantMeshUpdate;
+		bool bForceInstantMeshUpdate;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bForceMipStreaming;
+		bool bForceMipStreaming;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bForceMaxLOD;
+		bool bForceMaxLOD;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bPartsUseAuxiliaryMesh;
+		bool bPartsUseAuxiliaryMesh;
 
 	//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	TArray<TWeakObjectPtr<class UMeshComponent>> MeshComponents;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UClass*                                      Quiver;
+		class UClass* Quiver;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		uint8                                      MaxAmmo;
+		uint8 MaxAmmo;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		uint8                                     Ammo;
+		uint8 Ammo;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		uint8                                      MaxAmmoWithoutQuiver;
+		uint8 MaxAmmoWithoutQuiver;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		uint8                                      LastAmmo;
+		uint8 LastAmmo;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bDestroyIfNoAmmo;
+		bool bDestroyIfNoAmmo;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		EMovementRestriction                               MovementRestriction;
+		EMovementRestriction MovementRestriction;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bPreventsClimbing;
+		bool bPreventsClimbing;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              BackpedalSpeedFactorEquipped;
+		float BackpedalSpeedFactorEquipped;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              SpeedBonusPercentageEquipped;
+		float SpeedBonusPercentageEquipped;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              AccelerationBonusPercentageEquipped;
+		float AccelerationBonusPercentageEquipped;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              SpeedBonusPercentageHolstered;
+		float SpeedBonusPercentageHolstered;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              AccelerationBonusPercentageHolstered;
+		float AccelerationBonusPercentageHolstered;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		FEquipmentCustomization                     AssignedCustomization;
+		FEquipmentCustomization AssignedCustomization;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		uint8                                       Colors;
+		uint8 Colors;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		uint8                                       PartsId;
+		uint8 PartsId;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		uint8                                       Skin;
+		uint8 Skin;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		uint8                                       Emblem;
+		uint8 Emblem;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		uint8                                       EmblemColors;
+		uint8 EmblemColors;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		uint8                                       Pattern;
+		uint8 Pattern;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bHasColors;
+		bool bHasColors;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bHasPartsId;
+		bool bHasPartsId;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bHasSkin;
+		bool bHasSkin;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bHasEmblem;
+		bool bHasEmblem;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bHasEmblemColors;
+		bool bHasEmblemColors;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bHasPattern;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		TArray<struct FEquipmentSkinEntry>                 Skins;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bAutoAssignCustomizationOnBeginPlay;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		FEquipmentCustomization                     AutoAssignCustomization;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		uint8                                      AutoAssignCustomizationEmblem;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		uint8                                      AutoAssignCustomizationEmblemColor1;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		uint8                                      AutoAssignCustomizationEmblemColor2;
+		bool bHasPattern;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		TArray<struct FEmoteEntry>                         EquipmentEmotes;
+		TArray<struct FEquipmentSkinEntry> Skins;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UBlendSpaceBase*                             UpperBlendSpace1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               UpperAdditive1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UBlendSpaceBase*                             UpperBlendSpaceUnloaded1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               UpperAdditiveUnloaded1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UBlendSpaceBase*                             UpperBlendSpace;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               UpperAdditive;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UBlendSpaceBase*                             UpperBlendSpaceUnloaded;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               UpperAdditiveUnloaded;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               LowerAnimation;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UBlendSpaceBase*                             ShieldUpperBlendSpace1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               ShieldUpperAdditive1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UBlendSpaceBase*                             ShieldUpperBlendSpace;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               ShieldUpperAdditive;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               ShieldLowerAnimation;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UBlendSpaceBase*                             ShieldHorseUpperBlendSpace1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               ShieldHorseUpperAdditive1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UBlendSpaceBase*                             ShieldHorseUpperBlendSpace;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               ShieldHorseUpperAdditive;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UBlendSpaceBase*                             HorseUpperBlendSpace1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               HorseUpperAdditive1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UBlendSpaceBase*                             HorseUpperBlendSpaceUnloaded1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               HorseUpperAdditiveUnloaded1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UBlendSpaceBase*                             HorseUpperBlendSpace;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               HorseUpperAdditive;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UBlendSpaceBase*                             HorseUpperBlendSpaceUnloaded;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               HorseUpperAdditiveUnloaded;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               HorseUpperRearing;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               HorseUpperRearing1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               HorseUpperJump;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               HorseUpperJump1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimMontage*                                ModeSwitchAnimation;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimMontage*                                DropAnimation;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimMontage*                                InteractWithAnimation;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimMontage*                                InteractWith1PAnimation;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               JumpUnloadedAnimation;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               JumpAnimation;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               JumpAnimationShield;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               JumpUnloadedAnimation1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               JumpAnimation1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               JumpAnimationShield1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               FallingUnloadedAnimation;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               FallingAnimation;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               FallingAnimationShield;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               FallingUnloadedAnimation1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               FallingAnimation1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               FallingAnimationShield1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               LandUnloadedAnimation;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               LandAnimation;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               LandAnimationShield;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               LandUnloadedAnimation1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               LandAnimation1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               LandAnimationShield1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimMontage*                                SecondDropAnimation;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimMontage*                                SecondInteractWithAnimation;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimMontage*                                SecondInteractWith1PAnimation;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               SecondJumpUnloadedAnimation;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               SecondJumpAnimation;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               SecondJumpUnloadedAnimation1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               SecondJumpAnimation1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               SecondFallingUnloadedAnimation;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               SecondFallingAnimation;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               SecondFallingUnloadedAnimation1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               SecondFallingAnimation1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               SecondLandUnloadedAnimation;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               SecondLandAnimation;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               SecondLandUnloadedAnimation1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               SecondLandAnimation1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		TArray<class UAnimMontage*>                        CharacterPreviewPoses;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimMontage*                                RangedDrawAnimation;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimMontage*                                RangedDrawAnimation1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UBlendSpaceBase*                             RangedDrawnAdditive;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimMontage*                                RangedDrawEquipmentAnimation;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimMontage*                                RangedDrawEquipmentAnimation1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimMontage*                                RangedReleaseAnimation;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimMontage*                                RangedReleaseAnimation1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimMontage*                                RangedReleaseEquipmentAnimation;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimMontage*                                RangedReleaseEquipmentAnimation1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimMontage*                                ReloadAnimation;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class USoundCue*                                   ReloadSound;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimMontage*                                ReloadAnimation1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class USoundCue*                                   ReloadSound1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimMontage*                                ReloadEquipmentAnimation;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimMontage*                                ReloadEquipmentAnimation1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimMontage*                                QuickthrowAnimation1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimMontage*                                QuickthrowAnimation;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bDisableSpineArmsCompensation1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bDisableHandSpringAnimation;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		struct FVector                                     RightHandIKPositionOffset;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		struct FVector                                     RightShoulderOffset1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		struct FVector                                     LeftShoulderOffset1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bUsesOffhandIK;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bInvertOffhandUp;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bSecondInvertOffhandUp;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UBlendSpaceBase*                             SecondUpperBlendSpace1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               SecondUpperAdditive1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UBlendSpaceBase*                             SecondUpperBlendSpaceUnloaded1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               SecondUpperAdditiveUnloaded1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UBlendSpaceBase*                             SecondUpperBlendSpace;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               SecondUpperAdditive;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UBlendSpaceBase*                             SecondUpperBlendSpaceUnloaded;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               SecondUpperAdditiveUnloaded;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimSequence*                               SecondLowerAnimation;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UAnimMontage*                                SecondModeSwitchAnimation;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bSecondUsesOffhandIK;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              OffhandIKUpOffset;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              OffhandIKUpOffset1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              SecondOffhandIKUpOffset;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              SecondOffhandIKUpOffset1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		struct FVector                                     RightHandEquipOffset;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		struct FTransform                                  RightWeaponBoneCosmeticTransform;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		struct FTransform                                  RightWeaponBoneCosmeticTransform1P;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		struct FTransform                                  SecondRightWeaponBoneCosmeticTransform;
-
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		struct FTransform                                  SecondRightWeaponBoneCosmeticTransform1P;
-
+		bool bAutoAssignCustomizationOnBeginPlay;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		struct FRotator                                    RotationOffset;
+		FEquipmentCustomization AutoAssignCustomization;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		struct FRotator                                    SecondRotationOffset;
+		uint8 AutoAssignCustomizationEmblem;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		struct FVector                                     GripLocationLocal;
+		uint8 AutoAssignCustomizationEmblemColor1;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		struct FVector                                     SecondGripLocationLocal;
+		uint8 AutoAssignCustomizationEmblemColor2;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		TArray<struct FEquipmentHolsterInfo>               HolsterInfo;
+		TArray<struct FEmoteEntry> EquipmentEmotes;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bCanHolster;
+		class UBlendSpaceBase* UpperBlendSpace1P;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bCanEquipOnHorse;
+		class UAnimSequence* UpperAdditive1P;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bCanEquipOnLadder;
+		class UBlendSpaceBase* UpperBlendSpaceUnloaded1P;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bSecondCanEquipOnHorse;
+		class UAnimSequence* UpperAdditiveUnloaded1P;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bSecondCanEquipOnLadder;
+		class UBlendSpaceBase* UpperBlendSpace;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class USoundCue*                                   AmmoRefillSound;
+		class UAnimSequence* UpperAdditive;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class USoundCue*                                   EquipSound;
+		class UBlendSpaceBase* UpperBlendSpaceUnloaded;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class USoundCue*                                   HolsterSound;
+		class UAnimSequence* UpperAdditiveUnloaded;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class USoundCue*                                   DrawSound;
+		class UAnimSequence* LowerAnimation;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              DrawSoundPlayAtNormalizedTime;
+		class UBlendSpaceBase* ShieldUpperBlendSpace1P;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              DrawSoundPlayAtNormalizedTime1P;
+		class UAnimSequence* ShieldUpperAdditive1P;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class USoundCue*                                   RangedCancelSound;
+		class UBlendSpaceBase* ShieldUpperBlendSpace;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class USoundCue*                                   FireSound;
+		class UAnimSequence* ShieldUpperAdditive;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bAlwaysDestroyOnDeath;
+		class UAnimSequence* ShieldLowerAnimation;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bDeferDestroyUntilRagdoll;
+		class UBlendSpaceBase* ShieldHorseUpperBlendSpace1P;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              RagdollStayTime;
+		class UAnimSequence* ShieldHorseUpperAdditive1P;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bAllowDrop;
+		class UBlendSpaceBase* ShieldHorseUpperBlendSpace;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bCanAttack;
+		class UAnimSequence* ShieldHorseUpperAdditive;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bCanAttackOnFoot;
+		class UBlendSpaceBase* HorseUpperBlendSpace1P;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bCanAttackOnHorseback;
+		class UAnimSequence* HorseUpperAdditive1P;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bAllowFire;
+		class UBlendSpaceBase* HorseUpperBlendSpaceUnloaded1P;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bFireThrowsEquipment;
+		class UAnimSequence* HorseUpperAdditiveUnloaded1P;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              ExtraSwitchTime;
+		class UBlendSpaceBase* HorseUpperBlendSpace;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bRangedReleasePlaysAttackYell;
+		class UAnimSequence* HorseUpperAdditive;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bUsesRangedCamera;
+		class UBlendSpaceBase* HorseUpperBlendSpaceUnloaded;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bAllowHoldDraw;
+		class UAnimSequence* HorseUpperAdditiveUnloaded;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bAllowCancelDraw;
+		class UAnimSequence* HorseUpperRearing;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              MaxHoldDrawTime;
+		class UAnimSequence* HorseUpperRearing1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* HorseUpperJump;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* HorseUpperJump1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimMontage* ModeSwitchAnimation;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimMontage* DropAnimation;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimMontage* InteractWithAnimation;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimMontage* InteractWith1PAnimation;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* JumpUnloadedAnimation;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* JumpAnimation;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* JumpAnimationShield;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* JumpUnloadedAnimation1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* JumpAnimation1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* JumpAnimationShield1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* FallingUnloadedAnimation;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* FallingAnimation;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* FallingAnimationShield;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* FallingUnloadedAnimation1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* FallingAnimation1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* FallingAnimationShield1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* LandUnloadedAnimation;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* LandAnimation;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* LandAnimationShield;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* LandUnloadedAnimation1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* LandAnimation1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* LandAnimationShield1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimMontage* SecondDropAnimation;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimMontage* SecondInteractWithAnimation;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimMontage* SecondInteractWith1PAnimation;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* SecondJumpUnloadedAnimation;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* SecondJumpAnimation;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* SecondJumpUnloadedAnimation1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* SecondJumpAnimation1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* SecondFallingUnloadedAnimation;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* SecondFallingAnimation;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* SecondFallingUnloadedAnimation1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* SecondFallingAnimation1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* SecondLandUnloadedAnimation;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* SecondLandAnimation;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* SecondLandUnloadedAnimation1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* SecondLandAnimation1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		TArray<class UAnimMontage*> CharacterPreviewPoses;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimMontage* RangedDrawAnimation;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimMontage* RangedDrawAnimation1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UBlendSpaceBase* RangedDrawnAdditive;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimMontage* RangedDrawEquipmentAnimation;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimMontage* RangedDrawEquipmentAnimation1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimMontage* RangedReleaseAnimation;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimMontage* RangedReleaseAnimation1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimMontage* RangedReleaseEquipmentAnimation;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimMontage* RangedReleaseEquipmentAnimation1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimMontage* ReloadAnimation;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class USoundCue* ReloadSound;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimMontage* ReloadAnimation1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class USoundCue* ReloadSound1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimMontage* ReloadEquipmentAnimation;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimMontage* ReloadEquipmentAnimation1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimMontage* QuickthrowAnimation1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimMontage* QuickthrowAnimation;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		bool bDisableSpineArmsCompensation1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		bool bDisableHandSpringAnimation;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		struct FVector RightHandIKPositionOffset;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		struct FVector RightShoulderOffset1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		struct FVector LeftShoulderOffset1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		bool bUsesOffhandIK;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		bool bInvertOffhandUp;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		bool bSecondInvertOffhandUp;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UBlendSpaceBase* SecondUpperBlendSpace1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* SecondUpperAdditive1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UBlendSpaceBase* SecondUpperBlendSpaceUnloaded1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* SecondUpperAdditiveUnloaded1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UBlendSpaceBase* SecondUpperBlendSpace;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* SecondUpperAdditive;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UBlendSpaceBase* SecondUpperBlendSpaceUnloaded;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* SecondUpperAdditiveUnloaded;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimSequence* SecondLowerAnimation;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class UAnimMontage* SecondModeSwitchAnimation;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		bool bSecondUsesOffhandIK;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		float OffhandIKUpOffset;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		float OffhandIKUpOffset1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		float SecondOffhandIKUpOffset;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		float SecondOffhandIKUpOffset1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		struct FVector RightHandEquipOffset;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		struct FTransform RightWeaponBoneCosmeticTransform;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		struct FTransform RightWeaponBoneCosmeticTransform1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		struct FTransform SecondRightWeaponBoneCosmeticTransform;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		struct FTransform SecondRightWeaponBoneCosmeticTransform1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		struct FRotator RotationOffset;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		struct FRotator SecondRotationOffset;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		struct FVector GripLocationLocal;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		struct FVector SecondGripLocationLocal;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TArray<struct FEquipmentHolsterInfo> HolsterInfo;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		bool bCanHolster;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		bool bCanEquipOnHorse;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		bool bCanEquipOnLadder;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		bool bSecondCanEquipOnHorse;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		bool bSecondCanEquipOnLadder;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class USoundCue* AmmoRefillSound;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class USoundCue* EquipSound;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class USoundCue* HolsterSound;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class USoundCue* DrawSound;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		float DrawSoundPlayAtNormalizedTime;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		float DrawSoundPlayAtNormalizedTime1P;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class USoundCue* RangedCancelSound;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class USoundCue* FireSound;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		bool bAlwaysDestroyOnDeath;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		bool bDeferDestroyUntilRagdoll;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		float RagdollStayTime;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		bool bAllowDrop;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		bool bCanAttack;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		bool bCanAttackOnFoot;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		bool bCanAttackOnHorseback;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		bool bAllowFire;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		bool bFireThrowsEquipment;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		float ExtraSwitchTime;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		bool bRangedReleasePlaysAttackYell;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		bool bUsesRangedCamera;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		bool bAllowHoldDraw;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		bool bAllowCancelDraw;
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		float MaxHoldDrawTime;
 
 	// UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		//EMovementRestriction                               ReloadMovementRestriction;
+	//EMovementRestriction ReloadMovementRestriction;
 
 	// UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		//EMovementRestriction                               RangedDrawMovementRestriction;
+	//EMovementRestriction RangedDrawMovementRestriction;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              RangedDrawSpeedFactor;
+		float RangedDrawSpeedFactor;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              RangedDrawSpeedFactorWithRangerPerk;
+		float RangedDrawSpeedFactorWithRangerPerk;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		struct FVector2D                                   RangedDrawTurnCaps;
+		struct FVector2D RangedDrawTurnCaps;
 
 	//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-	   //EMovementRestriction                               RangedReleaseMovementRestriction;
+	//EMovementRestriction RangedReleaseMovementRestriction;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bDoNotFireAfterMaxHoldDrawTime;
+		bool bDoNotFireAfterMaxHoldDrawTime;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bQuickthrowOnly;
+		bool bQuickthrowOnly;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              ForceAppliedOnDrop;
+		float ForceAppliedOnDrop;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bAllowCleanup;
+		bool bAllowCleanup;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              RangedDrawTime;
+		float RangedDrawTime;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              RangedCancelTime;
+		float RangedCancelTime;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              RangedReleaseTime;
+		float RangedReleaseTime;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		class UClass*                                      RangedReleaseCameraShake;
+		class UClass* RangedReleaseCameraShake;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              RangedReloadTime;
+		float RangedReloadTime;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		struct FVector2D                                   RangedReloadTurnCaps;
+		struct FVector2D RangedReloadTurnCaps;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              RangedReloadGrabAmmoNormTime;
+		float RangedReloadGrabAmmoNormTime;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              RangedReloadFinishReloadNormTime;
+		float RangedReloadFinishReloadNormTime;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              AutoReloadTime;
+		float AutoReloadTime;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              AutoReloadTimeSpent;
+		float AutoReloadTimeSpent;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bCanReload;
+		bool bCanReload;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bUnloadOnUnequip;
+		bool bUnloadOnUnequip;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bLoadOnUnequip;
+		bool bLoadOnUnequip;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bIsLoaded;
+		bool bIsLoaded;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bHiddenWhenUnloaded;
+		bool bHiddenWhenUnloaded;
 
 	UPROPERTY(ReplicatedUsing = OnRep_IsUsingAlternateMode, EditAnywhere, BlueprintReadWrite)
-		bool                                               bIsUsingAlternateMode;
+		bool bIsUsingAlternateMode;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bHasAlternateMode;
+		bool bHasAlternateMode;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bRevertModeOnUnequip;
+		bool bRevertModeOnUnequip;
 
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bRevertModeOnDrop;
+		bool bRevertModeOnDrop;
 
 	UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
 		void UpdateMaterial(class USkeletalMeshComponent* SkeletalMeshComp);
@@ -922,7 +923,7 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauEquipmentFns")
 		void FireProjectile(const struct FVector& Origin, const struct FRotator& Orientation, class AController* OwningController, float ExpectedDelay);
 	//UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
-	 //struct FEquipmentHolsterInfo FindCurrentHolsterInfo();
+	//struct FEquipmentHolsterInfo FindCurrentHolsterInfo();
 	UFUNCTION(BlueprintNativeEvent, Category = "MordhauEquipmentFns")
 		void EquipmentCommand(int Command);
 	UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
@@ -934,7 +935,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
 		void AssignCustomization(const struct FEquipmentCustomization& Customization, uint8 CustomizationEmblem, uint8 CustomizationEmblemColor1, uint8 CustomizationEmblemColor2);
 	//UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
-	 //struct FBoxSphereBounds ComputeAccurateBounds();
+	//struct FBoxSphereBounds ComputeAccurateBounds();
 	UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
 		bool CanPerformAttack(class AMordhauCharacter* Character, EAttackMove Move);
 	UFUNCTION(BlueprintNativeEvent, Category = "MordhauEquipmentEvents")

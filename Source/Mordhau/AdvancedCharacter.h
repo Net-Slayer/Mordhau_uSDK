@@ -578,9 +578,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "AdvCharFns")
 		bool PlayHitEffectParticle(const struct FVector& Location, const struct FRotator& Rotation, const FName& bone, bool bFindOptimalSpot);
 	UFUNCTION(BlueprintCallable, Category = "AdvCharFns")
-		class UAudioComponent* PlayCharacterSound(class USoundBase* Sound, const FName bone, const struct FVector InLocation, TEnumAsByte<EAttachLocation::Type> AttachLocation, bool bAttach, class USoundAttenuation* Override, float VolumeMultiplier, float PitchMultiplier);
+		class UAudioComponent* PlayCharacterSound(class USoundBase* Sound, const FName bone, const struct FVector InLocation, TEnumAsByte<EAttachLocation::Type> AttachLocation = EAttachLocation::SnapToTarget, bool bAttach = true, class USoundAttenuation* Override =nullptr, float VolumeMultiplier = 1.0f, float PitchMultiplier = 1.0f);
 	UFUNCTION(BlueprintCallable, Category = "AdvCharFns")
-		class UAnimMontage* PlayAnim(class UAnimMontage* Montage, float PlayRate, bool bStopExistingMontages);
+		class UAnimMontage* PlayAnim(class UAnimMontage* Montage, float PlayRate = 1.0f, bool bStopExistingMontages = false);
 
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = "AdvCharEvents")
 		void OnTookDamage(bool bWillKill, EMordhauDamageType Type, uint8 SubType, const FName& bone, const struct FVector& Point, class AActor* Source, class AActor* Agent);
@@ -624,7 +624,7 @@ public:
 		void OnAfterDied(float Angle, EMordhauDamageType Type, uint8 SubType, const FName& bone, const struct FVector& Point, class AActor* Source, class AActor* Agent);
 
 	UFUNCTION(BlueprintCallable, Category = "AdvCharFns")
-		void OffsetHealth(int Amount, bool bReplicate);
+		void OffsetHealth(int Amount, bool bReplicate = true);
 	UFUNCTION(BlueprintCallable, Category = "AdvCharFns")
 		void MoveRight(float Val);
 	UFUNCTION(BlueprintCallable, Category = "AdvCharFns")

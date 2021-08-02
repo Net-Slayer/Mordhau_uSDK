@@ -7,8 +7,9 @@
 struct FVector AMasterField::GetFieldBoundsCenter()
 {
 	return { 1,1,1 };
-	}
-	void AMasterField::GetSubFields(TArray<class ASubField*>& ReturnValue)
+}
+
+void AMasterField::GetSubFields(TArray<class ASubField*>& ReturnValue)
 	{}
 	void AMasterField::RecomputeCombinedBoundingBox()
 	{}

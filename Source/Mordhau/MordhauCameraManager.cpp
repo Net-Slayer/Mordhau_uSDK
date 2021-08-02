@@ -2,6 +2,16 @@
 
 #include "MordhauCameraManager.h"
 
+
+
+AMordhauCameraManager::AMordhauCameraManager(const FObjectInitializer& ObjectInitializer)
+	: Super(ObjectInitializer)
+
+{
+	TagSystemComponent = CreateDefaultSubobject<UTagSystemComponent>(TEXT("TagSystemComponent"));
+}
+
+
 UPROPERTY(EditAnywhere,BlueprintReadWrite)
 struct FMinimalViewInfo ReturnMinView;
 
