@@ -1,0 +1,10 @@
+diff a/Source/Mordhau/Mordhau.h b/Source/Mordhau/Mordhau.h	(rejected hunks)
+@@ -3,8 +3,6 @@
+ #pragma once
+ 
+ #include "CoreMinimal.h"
+-//#include "Engine/NetSerialization.h"
+-//#include "Engine/EngineTypes.h"
+ #include "Mordhau.generated.h"
+ 
+ 
