@@ -1,10 +1,13 @@
-# Current Stage : Beta
+# Mordhau uSDK1.2 Source Code
+_C++ classes to be used with uSDK_Content for modding Mordhau_
+
+## Current Stage : Beta
 
 
 This was github repo was originally going to include content
 It has since been repurposed to only contain source code changes
 
------------------------------------Acknowledgments-----------------------------------
+##Acknowledgments-----------------------------------
 
 Special thanks to Triternion for making Mordhau and providing modding support!
 
