@@ -32,10 +32,7 @@ void AMordhauVehicle::DriverLateTick_Implementation(class AMordhauCharacter* Fro
 {
 
 }
-bool AMordhauVehicle::CanDrive_Implementation(class AMordhauCharacter* Character)
-{
-	return 1;
-}
+
 void AMordhauVehicle::RequestUse_Implementation()
 {
 

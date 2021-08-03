@@ -177,7 +177,7 @@ public:
 		struct FTransform GetExitTransform();
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "MordhauVehicleEvents")
 		void DriverLateTick(class AMordhauCharacter* FromDriver, float DeltaTime);
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "MordhauVehicleEvents")
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = "MordhauVehicleEvents")
 		bool CanDrive(class AMordhauCharacter* Character);
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "MordhauVehicleEvents")
 		void RequestUse();
