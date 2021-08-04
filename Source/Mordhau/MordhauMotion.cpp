@@ -76,7 +76,7 @@ bool UMordhauMotion::HasAuthority()
 	return false;
 }
 
-UWorld * UMordhauMotion::GetWorld()
+UWorld * UMordhauMotion::GetWorld() const
 {
 	return nullptr;
 }

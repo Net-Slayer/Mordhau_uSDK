@@ -15,6 +15,15 @@ class MORDHAU_API AMordhauGameMode : public AGameMode
 {
 	GENERATED_BODY()
 public:
+
+
+	//Speculative Properties from BPs
+	UPROPERTY(BlueprintReadWrite, Config = Game, EditAnywhere, GlobalConfig, Replicated)
+	bool AllowWhisperChat;
+	UPROPERTY(BlueprintReadWrite, Config = Game, EditAnywhere, GlobalConfig, Replicated)
+	bool AllowAdminChat;
+
+
 	//doesn't wish to compile anything called mapPrefixes
 // 	UPROPERTY() 
 // 	TArray<struct FGameModeName> MapPrefixes; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
@@ -108,6 +117,9 @@ public:
 	bool  bSuicideDecrementsKills; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated)
 	TArray<FString>  ChatMessages;   //(Edit, BlueprintVisible, ZeroConstructor)
+
+
+
 	
 // 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 // 	struct FScriptMulticastDelegate  OnRconStringCommand;  //(ZeroConstructor, InstancedReference, BlueprintAssignable)
@@ -177,8 +189,8 @@ public:
 	bool CanClash(class APawn* Source, class APawn* Target);
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	bool CanChamber(class APawn* Source, class APawn* Target);
-	UFUNCTION(BlueprintCallable)
-	void Broadcast(class AActor* Sender, const FString& Msg, const FName& Type);
+	UFUNCTION(BlueprintCallable, meta = (AutoCreateRefTerm = "Msg, Type"))
+	virtual void Broadcast(class AActor* Sender, const FString& Msg, const FName& Type);
 	UFUNCTION(BlueprintCallable)
 	void AddTeamScore(int Team, float Amount);
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)

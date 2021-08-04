@@ -435,7 +435,7 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "ClassRefs")
 		class UBlendSpaceBase* UpperBlendSpaceUnloaded; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "ClassRefs")
-		class UClass* ProjectileClass; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+		class TSubclassOf<AMordhauProjectile> ProjectileClass; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "ClassRefs")
 		class UClass* Quiver; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "ClassRefs")

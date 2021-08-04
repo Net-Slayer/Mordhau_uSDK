@@ -179,10 +179,10 @@ public:
 		void Highlight();
 	UFUNCTION(BlueprintCallable, Category = "MordhauActorFns")
 		void HeldInteractionStart(class AMordhauCharacter* Character);
-	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, BlueprintPure, Category = "MordhauActorFns")
-		bool CanInteractPassively(class AMordhauCharacter* Character);
-	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, BlueprintPure, Category = "MordhauActorFns")
-		bool CanInteract(class AMordhauCharacter* Character);
-	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, BlueprintPure)
-		bool CanHeldInteract(class AMordhauCharacter* Character);
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = "MordhauActorFns")
+		bool CanInteractPassively(class AMordhauCharacter* Character) const;
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = "MordhauActorFns")
+		bool CanInteract(class AMordhauCharacter* Character) const;
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+		bool CanHeldInteract(class AMordhauCharacter* Character) const;
 };

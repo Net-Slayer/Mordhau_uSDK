@@ -8,6 +8,7 @@
 #include "MordhauCharacter.h"
 #include "Mordhau.h"
 #include "Navigation/CrowdFollowingComponent.h"
+#include "NavFilters/NavigationQueryFilter.h"
 #include "MordhauAIController.generated.h"
 
 /**
@@ -116,11 +117,11 @@ public:
 		float AvoidanceRangeMultiplier; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		class UClass* DefaultNavQueryFilter; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+		class UNavigationQueryFilter* DefaultNavQueryFilter; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		class UClass* Team1NavQueryFilter; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+		class UNavigationQueryFilter* Team1NavQueryFilter; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		class UClass* Team2NavQueryFilter; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+		class UNavigationQueryFilter* Team2NavQueryFilter; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 
 	//Refuses to Compile
 // 	UPROPERTY(BlueprintReadWrite, EditAnywhere)

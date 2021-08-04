@@ -111,8 +111,8 @@ public:
 		void OnDynamicParamChanged(uint8 OldValue, uint8 NewValue);
 	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "MordhauMotionFns")
 		bool HasAuthority();
-	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "MordhauMotionFns")
-		class UWorld* GetWorld();
+	UFUNCTION(BlueprintCallable, Category = "MordhauMotionFns")
+		class UWorld* GetWorld() const;
 	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "MordhauMotionFns")
 		class AMordhauCharacter* GetOwnerMordhauCharacter();
 	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "MordhauMotionFns")

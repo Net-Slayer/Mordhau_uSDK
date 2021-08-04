@@ -848,9 +848,9 @@ struct FActorSetAndArray
 	GENERATED_BODY()
 public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		TArray<class AActor*> Array;
+		TArray<class AActor*> Array = {};
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		TSet<class AActor*> Set;
+		TSet<class AActor*> Set = {};
 };
 USTRUCT(BlueprintType, Blueprintable)
 struct FWoundInfo
@@ -1868,11 +1868,10 @@ struct FPlayFabPlayer : public FPlayFabProfile
 		struct FPlayFabPlayerEntity Entity; // 0x0030(0x0020) (BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		FString Name; // 0x0050(0x0010) (BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	
+
 	FPlayFabPlayer()
 		: FPlayFabPlayer("PlayFabName")
 	{}
-
 
 	FPlayFabPlayer(FString Name)
 		: Name(Name)
@@ -1891,7 +1890,6 @@ struct FPlayFabPlayer : public FPlayFabProfile
 	{
 		return Name.Equals(Other.Name);
 	}
-
 };
 FORCEINLINE uint32 GetTypeHash(const FPlayFabPlayer& b)
 {
@@ -2284,8 +2282,6 @@ struct FPlayFabMatch
 		int64 EndTimestamp; // 0x0058(0x0008) (ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 
-
-
 // ScriptStruct Mordhau.PlayFabMatchmakingAttributes
 // 0x0058
 USTRUCT(BlueprintType, Blueprintable)
@@ -2293,13 +2289,11 @@ struct FPlayFabMatchmakingAttributes
 {
 	GENERATED_BODY()
 		UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	EServerRegion                                      Region;                                                    // 0x0000(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+		EServerRegion                                      Region;                                                    // 0x0000(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	int                                                MMR;                                                       // 0x0004(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+		int                                                MMR;                                                       // 0x0004(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	TMap<EServerLocation, int>                         Pings;                                                     // 0x0008(0x0050) (BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
-
-
+		TMap<EServerLocation, int>                         Pings;                                                     // 0x0008(0x0050) (BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
 };
 
 // ScriptStruct Mordhau.PlayFabMatchmakingPlayer
@@ -2308,39 +2302,39 @@ USTRUCT(BlueprintType, Blueprintable)
 struct FPlayFabMatchmakingPlayer
 {
 	GENERATED_BODY()
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		struct FPlayFabPlayerEntity Entity; // 0x0000(0x0020) (BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	FString TeamID; // 0x0020(0x0010) (BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+		FString TeamID; // 0x0020(0x0010) (BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	struct FPlayFabMatchmakingAttributes Attributes; // 0x0030(0x0058) (BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+		struct FPlayFabMatchmakingAttributes Attributes; // 0x0030(0x0058) (BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 
 USTRUCT(BlueprintType, Blueprintable)
 struct FPlayFabMatchmakingMatch
 {
 	GENERATED_BODY()
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		FString QueueName; // 0x0000(0x0010) (BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	FString MatchID; // 0x0010(0x0010) (BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+		FString MatchID; // 0x0010(0x0010) (BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	FString OwnerID; // 0x0020(0x0010) (BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+		FString OwnerID; // 0x0020(0x0010) (BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	FString GroupID; // 0x0030(0x0010) (BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+		FString GroupID; // 0x0030(0x0010) (BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	EPlayFabMatchStatus Status; // 0x0040(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+		EPlayFabMatchStatus Status; // 0x0040(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	TArray<struct FPlayFabMatchmakingPlayer> Members; // 0x0048(0x0010) (BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
+		TArray<struct FPlayFabMatchmakingPlayer> Members; // 0x0048(0x0010) (BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	TArray<FString> RegisteredMembers; // 0x0058(0x0010) (BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
+		TArray<FString> RegisteredMembers; // 0x0058(0x0010) (BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	struct FPlayFabServerDetails ServerDetails; // 0x0068(0x0028) (BlueprintVisible, NativeAccessSpecifierPublic)
+		struct FPlayFabServerDetails ServerDetails; // 0x0068(0x0028) (BlueprintVisible, NativeAccessSpecifierPublic)
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	TArray<EServerLocation> LocationPreference; // 0x0090(0x0010) (BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
+		TArray<EServerLocation> LocationPreference; // 0x0090(0x0010) (BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	EServerRegion Region; // 0x00A0(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+		EServerRegion Region; // 0x00A0(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 //USTRUCT(BlueprintType, Blueprintable)
 //struct FPrePhysTickFunction : public FTickFunction
@@ -2391,12 +2385,6 @@ struct FPlayFabGameServer
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		FString OperatingSystem; // 0x00D8(0x0010) (BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-
-
-
-
-
-
 
 // ScriptStruct Mordhau.PerspectiveHighMidLowSpineSpaceAdditive
 USTRUCT(BlueprintType, Blueprintable)
@@ -2460,6 +2448,3 @@ struct FPerspectiveAnimSequenceBase
 		class UAnimSequenceBase* ThirdPerson; // (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	class UAnimSequenceBase* FirstPerson; // (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 };
-
-
-

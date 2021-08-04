@@ -8,6 +8,9 @@ void AMordhauGameMode::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & 
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 
 	// Replicate to everyone
+
+	DOREPLIFETIME(AMordhauGameMode, AllowAdminChat)
+	DOREPLIFETIME(AMordhauGameMode, AllowWhisperChat)
 	DOREPLIFETIME(AMordhauGameMode, MapRotation) //(Edit, BlueprintVisible, ZeroConstructor, Config, GlobalConfig)
 	DOREPLIFETIME(AMordhauGameMode, MOTDURL) //(BlueprintVisible, ZeroConstructor, Config, GlobalConfig)
 	DOREPLIFETIME(AMordhauGameMode, bIsThirdPersonCameraDisabled) //(BlueprintVisible, ZeroConstructor, Config, GlobalConfig, IsPlainOldData)

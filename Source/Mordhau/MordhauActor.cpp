@@ -56,3 +56,5 @@ void AMordhauActor::Highlight()
 void AMordhauActor::HeldInteractionStart(class AMordhauCharacter* Character)
 {
 }
+
+

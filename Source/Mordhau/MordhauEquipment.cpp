@@ -12,7 +12,7 @@ AMordhauEquipment::AMordhauEquipment()
 {
 
 	SkeletalMeshComponent = CreateDefaultSubobject<ULODSkeletalMeshComponent>(TEXT("SkeletalMeshComponent"));
-	SkeletalMeshComponent->AttachTo(RootComponent);
+	SkeletalMeshComponent->SetupAttachment(GetRootComponent());
 }
 
 // 

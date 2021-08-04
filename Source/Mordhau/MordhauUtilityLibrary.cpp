@@ -2,18 +2,9 @@
 
 #include "MordhauUtilityLibrary.h"
 
-
 bool UMordhauUtilityLibrary::AreActorsFromSameLevel(class AActor* ActorA, class AActor* ActorB)
 {
-	if (ActorA->GetLevel() == ActorB->GetLevel())
-	{
-		return 1;
-	}
-	else
-	{
-		return 0;
-	}
-
+	return false;
 }
 
 float UMordhauUtilityLibrary::AngularDistance(const FRotator & A, const FRotator & B)
@@ -30,7 +21,6 @@ FVector2D UMordhauUtilityLibrary::GetCustomConfigVar_Vector2D(FString SectionNam
 {
 	return FVector2D();
 }
-
 
 FVector UMordhauUtilityLibrary::GetCustomConfigVar_Vector(FString SectionName, FString VariableName, bool & IsValid)
 {
@@ -953,7 +943,6 @@ void UMordhauUtilityLibrary::GetDefaultObjectCopy(UClass * FromClass, UObject *&
 {
 }
 
-
 UObject * UMordhauUtilityLibrary::GetDefaultObject(UClass * FromClass)
 {
 	return nullptr;
@@ -962,7 +951,6 @@ UObject * UMordhauUtilityLibrary::GetDefaultObject(UClass * FromClass)
 void UMordhauUtilityLibrary::GetDefaultActorCopy(UClass * FromClass, AActor *& ActorCopy)
 {
 }
-
 
 AActor * UMordhauUtilityLibrary::GetDefaultActor(UClass * FromClass)
 {
