@@ -1869,33 +1869,8 @@ struct FPlayFabPlayer : public FPlayFabProfile
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		FString Name; // 0x0050(0x0010) (BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-	FPlayFabPlayer()
-		: FPlayFabPlayer("PlayFabName")
-	{}
 
-	FPlayFabPlayer(FString Name)
-		: Name(Name)
-	{}
-
-	FPlayFabPlayer(const FPlayFabPlayer& Other)
-		: FPlayFabPlayer(Other.Name)
-	{}
-
-	bool operator==(const FPlayFabPlayer& Other) const
-	{
-		return Equals(Other);
-	}
-
-	bool Equals(const FPlayFabPlayer& Other) const
-	{
-		return Name.Equals(Other.Name);
-	}
 };
-FORCEINLINE uint32 GetTypeHash(const FPlayFabPlayer& b)
-{
-	uint32 Hash = FCrc::MemCrc32(&b, sizeof(FPlayFabPlayer));
-	return Hash;
-}
 
 USTRUCT(BlueprintType, Blueprintable)
 struct FCharacterInventory

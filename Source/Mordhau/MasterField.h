@@ -12,52 +12,54 @@ class MORDHAU_API AMasterField : public AActor
 	GENERATED_BODY()
 
 public:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MasterFieldFloats")
-		float CreatedTime;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MasterFieldFloats")
-		float DeactivatedTime;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MasterFieldFloats")
-		float FieldLifeTime;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MasterFieldFloats")
-		float FieldDeactivationTime;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MasterFieldFloats")
-		float FieldFadeOutTime;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MasterFieldFloats")
-		float DeactivationStartedTime;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MasterFieldBools")
-		bool bAreSubfieldsHidden;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MasterFieldBools")
-		bool bIsFieldActive;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MasterFieldBools")
-		bool bHasBegunDeactivation;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		TArray<class UFieldSpawnComponent*> SubFieldSpawns;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		TArray<class ASubField*> SubFields;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		struct FBox CombinedBoundsBox;
+	UPROPERTY(BlueprintReadOnly, VisibleAnywhere)
+	float CreatedTime; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(BlueprintReadOnly, VisibleAnywhere)
+	float DeactivatedTime; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(BlueprintReadOnly, VisibleAnywhere)
+	float DeactivationStartedTime; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(BlueprintReadOnly, VisibleAnywhere)
+	bool bAreSubfieldsHidden; //(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	bool bIsFieldActive; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	bool bHasBegunDeactivation; //(BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(BlueprintReadOnly, Export, VisibleAnywhere)
+	TArray<class UFieldSpawnComponent*> SubFieldSpawns; //(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor)
+	UPROPERTY()
+	TArray<TWeakObjectPtr<class ASubField>> SubFields; //(ZeroConstructor)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	struct FBox CombinedBoundsBox; //(BlueprintVisible, IsPlainOldData)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	float FieldLifeTime; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	float FieldDeactivationTime; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	float FieldFadeOutTime; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	TArray<class UClass*> CollisionFilter; //(Edit, BlueprintVisible, ZeroConstructor)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	TMap<class AActor*, int> ActorPresenceTickCount; //(BlueprintVisible, ZeroConstructor)
+// 
+// 
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void UpdateField();
+	UFUNCTION(BlueprintCallable)
+	void SetSubFieldsHidden(bool bAreHidden);
+	UFUNCTION(BlueprintCallable)
+	void RecomputeCombinedBoundingBox();
+	UFUNCTION(BlueprintCallable, BlueprintGetter)
+	TArray<class ASubField*> GetSubFields();
+	UFUNCTION(BlueprintGetter)
+	struct FVector GetFieldBoundsCenter() const;
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void DeactivateAndDestroyField();
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void CreateField();
+	UFUNCTION(BlueprintCallable)
+	float ComputeDistanceIntoField(const struct FVector& Location);
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void BeginFieldDeactivation();
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		TArray<class UClass*> CollisionFilter;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		TMap<class AActor*, int> ActorPresenceTickCount;
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MasterFieldEvents")
-		void UpdateField();
-	UFUNCTION(BlueprintCallable, Category = "MasterFieldFunctions")
-		void SetSubFieldsHidden(bool bAreHidden);
-	UFUNCTION(BlueprintCallable, Category = "MasterFieldFunctions")
-		void RecomputeCombinedBoundingBox();
-	UFUNCTION(BlueprintCallable, Category = "MasterFieldFunctions")
-		void GetSubFields(TArray<class ASubField*>& ReturnValue);
-	UFUNCTION(BlueprintCallable, Category = "MasterFieldFunctions")
-		struct FVector GetFieldBoundsCenter() const;
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MasterFieldEvents")
-		void DeactivateAndDestroyField();
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MasterFieldEvents")
-		void CreateField();
-	UFUNCTION(BlueprintCallable, Category = "MasterFieldFunctions")
-		float ComputeDistanceIntoField(const struct FVector& Location);
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MasterFieldEvents")
-		void BeginFieldDeactivation();
 };

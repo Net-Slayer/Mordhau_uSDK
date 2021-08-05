@@ -3,17 +3,52 @@
 #include "MasterField.h"
 
 
-void AMasterField::GetSubFields(TArray<class ASubField*>& ReturnValue)
-{}
-FVector AMasterField::GetFieldBoundsCenter() const
+void AMasterField::UpdateField_Implementation()
 {
-	return FVector();
+
 }
-void AMasterField::RecomputeCombinedBoundingBox()
-{}
-void AMasterField::SetSubFieldsHidden(bool bAreHidden)
-{}
-float AMasterField::ComputeDistanceIntoField(const struct FVector& Location)
+
+
+
+
+struct FVector AMasterField::GetFieldBoundsCenter() const
 {
-	return 1.0f;
+	return FVector(0);
+}
+
+
+void AMasterField::DeactivateAndDestroyField_Implementation()
+{
+
+}
+
+void AMasterField::SetSubFieldsHidden(bool bAreHidden)
+{
+}
+
+void AMasterField::RecomputeCombinedBoundingBox()
+{
+}
+
+TArray<class ASubField*> AMasterField::GetSubFields()
+{
+	return TArray<class ASubField*>();
+}
+
+
+
+float AMasterField::ComputeDistanceIntoField(const FVector & Location)
+{
+	return 0.0f;
+}
+
+
+void AMasterField::BeginFieldDeactivation_Implementation()
+{
+
+}
+
+void AMasterField::CreateField_Implementation()
+{
+
 }

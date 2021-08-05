@@ -117,11 +117,11 @@ public:
 		float AvoidanceRangeMultiplier; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		class UNavigationQueryFilter* DefaultNavQueryFilter; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+		class TSubclassOf<UNavigationQueryFilter> DefaultNavQueryFilter; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		class UNavigationQueryFilter* Team1NavQueryFilter; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+		class TSubclassOf<UNavigationQueryFilter> Team1NavQueryFilter; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		class UNavigationQueryFilter* Team2NavQueryFilter; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+		class TSubclassOf<UNavigationQueryFilter> Team2NavQueryFilter; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 
 	//Refuses to Compile
 // 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
