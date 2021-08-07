@@ -8,7 +8,7 @@ public class Mordhau : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "MordhauOnlineSubsystem", "GameplayTags", "AIModule", "NavigationSystem" });
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "MordhauOnlineSubsystem", "GameplayTags", "NavigationSystem", "AIModule", "GameplayTasks"});
 
 		// PrivateDependencyModuleNames.AddRange(new string[] { "PlayFab", "PlayFabCpp", "PlayFabCommon" });
 		

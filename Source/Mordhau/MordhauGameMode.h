@@ -190,7 +190,7 @@ public:
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	bool CanChamber(class APawn* Source, class APawn* Target);
 	UFUNCTION(BlueprintCallable, meta = (AutoCreateRefTerm = "Msg, Type"))
-	virtual void Broadcast(class AActor* Sender, const FString& Msg, const FName& Type);
+	virtual void Broadcast(class AActor* Sender, const FString& Msg, FName Type) override;
 	UFUNCTION(BlueprintCallable)
 	void AddTeamScore(int Team, float Amount);
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)

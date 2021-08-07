@@ -693,7 +693,7 @@ public:
 		class AController* GetControllerIncludingVehicle();
 	UFUNCTION(BlueprintCallable, Category = "AdvCharFns")
 		bool GetBestStickyLocation(const FVector InLocation, FVector& OutLocation, FVector& OutNormal, FName& OutBone);
-	UFUNCTION(BlueprintCallable, Category = "AdvCharFns")
+	UFUNCTION(BlueprintCallable, Category = "AdvCharFns", meta = (AutoCreateRefTerm = "BoneName"))
 		uint8 GetArmorTierForBone(const FName& BoneName);
 	UFUNCTION(BlueprintCallable, Category = "AdvCharFns")
 		float GetAnimWeight(class UAnimMontage* Montage);

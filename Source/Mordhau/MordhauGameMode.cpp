@@ -58,9 +58,10 @@ bool AMordhauGameMode::ChangeLevel(const FString & LevelName)
 	return false;
 }
 
-void AMordhauGameMode::Broadcast(AActor * Sender, const FString & Msg, const FName & Type)
+void AMordhauGameMode::Broadcast(AActor * Sender, const FString & Msg, FName Type)
 {
 }
+
 
 void AMordhauGameMode::AddTeamScore(int Team, float Amount)
 {

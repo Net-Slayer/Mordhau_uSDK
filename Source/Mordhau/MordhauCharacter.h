@@ -577,7 +577,7 @@ public:
 		void NextShieldEquipment();
 	UFUNCTION(BlueprintCallable, Category = "MordhauCharacterFns")
 		void OffsetStamina(int Amount, bool bReplicate);
-	UFUNCTION(BlueprintCallable, Category = "MordhauCharacterFns")
+	UFUNCTION(BlueprintCallable, Category = "MordhauCharacterFns", meta = (AutoCreateRefTerm = "Reason"))
 		void OnActionFailed(const FName& Reason);
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = "MordhauCharacterFns")
 		void OnAttackStarted();
@@ -639,7 +639,7 @@ public:
 		void PreviousEquipmentReleased();
 	UFUNCTION(BlueprintCallable, Category = "MordhauCharacterFns")
 		void PreviousShieldEquipment();
-	UFUNCTION(BlueprintCallable, Category = "MordhauCharacterFns", meta = (AutoCreateRefTerm = "Force"))
+	UFUNCTION(BlueprintCallable, Category = "MordhauCharacterFns", meta = (AutoCreateRefTerm = "bone, Force"))
 		bool QueueDismember(const FName& bone, bool bIsDismemberPartial, bool bIsBluntForce, const struct FVector& Force, class AActor* Agent);
 	UFUNCTION(BlueprintCallable, Category = "MordhauCharacterFns")
 		void RequestAttack(EAttackMove Move, float Angle);
