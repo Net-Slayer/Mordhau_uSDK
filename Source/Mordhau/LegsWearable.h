@@ -17,16 +17,11 @@ class MORDHAU_API ULegsWearable : public UMordhauWearable
 	
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     LegsBouncyLimits;
+		struct FVector LegsBouncyLimits;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	uint8                                     DefaultFeet;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		TArray<TSoftClassPtr<UObject>> FeetWearables;
-
-
-
+		uint8 DefaultFeet;
 	UFUNCTION(BlueprintCallable, Category = "LegsWearableFns")
-	int GetFeetWearablesNum();
+		int GetFeetWearablesNum();
 	UFUNCTION(BlueprintCallable, Category = "LegsWearableFns")
-	class UClass* GetFeetWearable(int Index);
+		class UClass* GetFeetWearable(int Index);
 };

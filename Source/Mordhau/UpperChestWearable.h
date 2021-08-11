@@ -18,55 +18,32 @@ class MORDHAU_API UUpperChestWearable : public UMordhauWearable
 public:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	struct FVector                                     SpineBouncyLimits;
+		struct FVector SpineBouncyLimits;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	struct FVector                                     BreastBouncyLimits;
+		struct FVector BreastBouncyLimits;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	struct FVector                                     BellyBouncyLimitsFat;
+		struct FVector BellyBouncyLimitsFat;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	struct FVector                                     BellyBouncyLimitsSlim;
+		struct FVector BellyBouncyLimitsSlim;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	uint8                                      DefaultLowerChest;
+		uint8 DefaultLowerChest;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	uint8                                      DefaultArms;
+		uint8 DefaultArms;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	uint8                                      DefaultShoulders;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		TArray<TSoftClassPtr<UObject>> LowerChestWearables;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		TArray<TSoftClassPtr<UObject>> ArmsWearables;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		TArray<TSoftClassPtr<UObject>> ShouldersWearables;
+		uint8 DefaultShoulders;
 
 	UFUNCTION(BlueprintCallable, Category = "UpperChestWearableFns")
 		int GetShouldersWearablesNum();
 	UFUNCTION(BlueprintCallable, Category = "UpperChestWearableFns")
-	class UClass* GetShouldersWearable(int Index);
+		class UClass* GetShouldersWearable(int Index);
 	UFUNCTION(BlueprintCallable, Category = "UpperChestWearableFns")
-	int GetLowerChestWearablesNum();
+		int GetLowerChestWearablesNum();
 	UFUNCTION(BlueprintCallable, Category = "UpperChestWearableFns")
-	class UClass* GetLowerChestWearable(int Index);
+		class UClass* GetLowerChestWearable(int Index);
 	UFUNCTION(BlueprintCallable, Category = "UpperChestWearableFns")
-	int GetArmsWearablesNum();
+		int GetArmsWearablesNum();
 	UFUNCTION(BlueprintCallable, Category = "UpperChestWearableFns")
-	class UClass* GetArmsWearable(int Index);
+		class UClass* GetArmsWearable(int Index);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
 };

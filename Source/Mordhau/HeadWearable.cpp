@@ -12,4 +12,9 @@ class UClass* UHeadWearable::GetCoifWearable(int Index)
 	return nullptr;
 	}
 
+void UHeadWearable::AddCoifWearable()
+{
+
+}
+
 

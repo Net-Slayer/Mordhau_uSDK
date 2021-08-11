@@ -8,6 +8,7 @@
 #include "Curves/CurveFloat.h"
 #include "Camera/CameraShake.h"
 #include "GameplayTagContainer.h"
+#include "Misc/Crc.h"
 #include "Mordhau.generated.h"
 
 UENUM(BlueprintType)
@@ -1499,7 +1500,7 @@ struct FSTRUCT_SkirmishRoundInfo//
 	GENERATED_BODY()
 
 		UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		TEnumAsByte<E_SkirmishRoundStage> Stage;//RoundInfo
+		E_SkirmishRoundStage Stage;//RoundInfo
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		uint8 Winner;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
@@ -1719,7 +1720,7 @@ struct FMordhauDamageInfo
 		bool bWantsFlinchAnimation; // 0x00A0(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 };
 
-USTRUCT(BlueprintType, Blueprintable)
+USTRUCT(BlueprintType)
 struct FMordhauColorItemTable
 {
 	GENERATED_BODY()
@@ -1880,7 +1881,7 @@ struct FPlayFabProfile
 {
 	GENERATED_BODY()
 
-		UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		FString PlayFabId; // 0x0008(0x0010) (BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		EPlatform Platform; // 0x0018(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -1893,7 +1894,7 @@ struct FPlayFabEntity
 {
 	GENERATED_BODY()
 
-		UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		FString ID; // 0x0008(0x0010) (BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		EEntityType Type; // 0x0018(0x0001) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -1910,11 +1911,45 @@ struct FPlayFabPlayer : public FPlayFabProfile
 {
 	GENERATED_BODY()
 
-		UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		struct FPlayFabPlayerEntity Entity; // 0x0030(0x0020) (BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		FString Name; // 0x0050(0x0010) (BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+	FPlayFabPlayer()
+		: FPlayFabPlayer(TEXT("None"))
+	{}
+
+
+	FPlayFabPlayer(FString Name)
+		: Name(Name)
+	{}
+
+	FPlayFabPlayer(const FPlayFabPlayer& Other)
+		: FPlayFabPlayer(Other.Name)
+	{}
+
+	bool operator==(const FPlayFabPlayer& Other) const
+	{
+		return Equals(Other);
+	}
+
+	bool Equals(const FPlayFabPlayer& Other) const
+	{
+		return Name.Equals(Other.Name);
+	}
+	
 };
+FORCEINLINE uint32 GetTypeHash(const FPlayFabPlayer& Thing)
+{
+	uint32 Hash = FCrc::MemCrc32(&Thing, sizeof(FPlayFabPlayer));
+	return Hash;
+}
+
+
+
+
+
 
 USTRUCT(BlueprintType, Blueprintable)
 struct FCharacterInventory

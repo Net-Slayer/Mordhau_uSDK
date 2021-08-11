@@ -15,15 +15,13 @@ class MORDHAU_API UArmsWearable : public UMordhauWearable
 	GENERATED_BODY()
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	struct FVector                                     ArmsBouncyLimits;  
+		struct FVector ArmsBouncyLimits;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	uint8                                     DefaultHands;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		TArray<TSoftClassPtr<UObject>> HandsWearables;
+		uint8 DefaultHands;
 
 	UFUNCTION(BlueprintCallable, Category = "ArmsWearableFns")
-	int GetHandsWearablesNum();
+		int GetHandsWearablesNum();
 	UFUNCTION(BlueprintCallable, Category = "ArmsWearableFns")
-	class UClass* GetHandsWearable(int Index);
+		class UClass* GetHandsWearable(int Index);
 	
 };

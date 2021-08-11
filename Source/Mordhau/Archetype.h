@@ -13,10 +13,10 @@ UCLASS(Blueprintable)
 class MORDHAU_API UArchetype : public UObject
 {
 	GENERATED_BODY()
-	
+
 public:
 	UPROPERTY(BlueprintReadWrite)
-	int                                                CharacterPoints;
-	
-	
+		int CharacterPoints;
+
+
 };

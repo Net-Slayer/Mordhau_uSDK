@@ -11,60 +11,60 @@ UCLASS()
 class MORDHAU_API ASeparatedBodyPart : public AActor
 {
 	GENERATED_BODY()
-	
-public:	
+
+public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class ULODSkeletalMeshComponent*                   Mesh;
+		class ULODSkeletalMeshComponent* Mesh;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class USkeletalMesh*                               SkeletalMeshAsset;
+		class USkeletalMesh* SkeletalMeshAsset;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		TWeakObjectPtr<class APhysicsConstraintActor>      PhysicsConstraintActor;
+		TWeakObjectPtr<class APhysicsConstraintActor> PhysicsConstraintActor;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		TWeakObjectPtr<class AAdvancedCharacter>           SourceCharacter;
+		TWeakObjectPtr<class AAdvancedCharacter> SourceCharacter;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class UPhysicsAsset*                               HeadPhysicsAsset;
+		class UPhysicsAsset* HeadPhysicsAsset;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class UPhysicsAsset*                               LeftArmPhysicsAsset;
+		class UPhysicsAsset* LeftArmPhysicsAsset;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class UPhysicsAsset*                               LeftForearmPhysicsAsset;
+		class UPhysicsAsset* LeftForearmPhysicsAsset;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class UPhysicsAsset*                               LeftHandPhysicsAsset;
+		class UPhysicsAsset* LeftHandPhysicsAsset;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class UPhysicsAsset*                               RightArmPhysicsAsset;
+		class UPhysicsAsset* RightArmPhysicsAsset;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class UPhysicsAsset*                               RightForearmPhysicsAsset;
+		class UPhysicsAsset* RightForearmPhysicsAsset;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class UPhysicsAsset*                               RightHandPhysicsAsset;
+		class UPhysicsAsset* RightHandPhysicsAsset;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class UPhysicsAsset*                               LeftUpLegPhysicsAsset;
+		class UPhysicsAsset* LeftUpLegPhysicsAsset;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class UPhysicsAsset*                               LeftLegPhysicsAsset;
+		class UPhysicsAsset* LeftLegPhysicsAsset;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class UPhysicsAsset*                               LeftFootPhysicsAsset;
+		class UPhysicsAsset* LeftFootPhysicsAsset;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class UPhysicsAsset*                               RightUpLegPhysicsAsset;
+		class UPhysicsAsset* RightUpLegPhysicsAsset;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class UPhysicsAsset*                               RightLegPhysicsAsset;
+		class UPhysicsAsset* RightLegPhysicsAsset;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class UPhysicsAsset*                               RightFootPhysicsAsset;
+		class UPhysicsAsset* RightFootPhysicsAsset;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class UClass*                                      InGoreMesh;
+		class UClass* InGoreMesh;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class UClass*                                      InGoreMeshBlunt;
+		class UClass* InGoreMeshBlunt;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class UClass*                                      InGoreMeshHead;
+		class UClass* InGoreMeshHead;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FName                                       FakeRootBone;
+		FName FakeRootBone;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-TArray<class AActor*>               InstancedGoreMeshes;
+		TArray<class AActor*> InstancedGoreMeshes;
 
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = "SeparatedBodyPartEvents")
-	void OnCosmeticHit(EMordhauDamageType DamageType, uint8 SubType, const struct FHitResult& Hit, class AActor* Agent);
+		void OnCosmeticHit(EMordhauDamageType DamageType, uint8 SubType, const struct FHitResult& Hit, class AActor* Agent);
 	UFUNCTION(BlueprintCallable, Category = "SeparatedBodyPartFns")
-	bool IsPartiallyDismembered();
+		bool IsPartiallyDismembered();
 	UFUNCTION(BlueprintCallable, Category = "SeparatedBodyPartFns")
-	bool IsDismembered(const FName& bone);
+		bool IsDismembered(const FName& bone);
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = "SeparatedBodyPartEvents")
-	void InitializeDismemberment(class AMordhauCharacter* Source, const FName& bone, const struct FTransform& SourceBoneTransform, bool bIsPartial, bool bIsBluntForce);
+		void InitializeDismemberment(class AMordhauCharacter* Source, const FName& bone, const struct FTransform& SourceBoneTransform, bool bIsPartial, bool bIsBluntForce);
 };

@@ -14,6 +14,8 @@ class MORDHAU_API AECSActor : public AActor
 {
 	GENERATED_BODY()
 public:
+
+
 	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly)
 		int TotalCharacters; //(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly)

@@ -19,9 +19,9 @@ public:
 
 	//Speculative Properties from BPs
 	UPROPERTY(BlueprintReadWrite, Config = Game, EditAnywhere, GlobalConfig, Replicated)
-	bool AllowWhisperChat;
+	bool bAllowWhisperChat;
 	UPROPERTY(BlueprintReadWrite, Config = Game, EditAnywhere, GlobalConfig, Replicated)
-	bool AllowAdminChat;
+	bool bAllowAdminChat;
 
 
 	//doesn't wish to compile anything called mapPrefixes

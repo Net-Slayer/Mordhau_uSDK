@@ -12,14 +12,11 @@ UCLASS()
 class MORDHAU_API UBTTask_VoiceOrEmote : public UBTTaskNode
 {
 	GENERATED_BODY()
-	
+		
+		UBTTask_VoiceOrEmote(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 		virtual EBTNodeResult::Type ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory) override;
 
 public:
-
-
-
-
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		TArray<uint8> VoiceCommandsList; //(Edit, BlueprintVisible, ZeroConstructor)

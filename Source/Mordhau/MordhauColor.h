@@ -17,6 +17,8 @@ class MORDHAU_API UMordhauColor : public UMordhauInventoryItem
 public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		struct FLinearColor Color;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		struct FLinearColor DisplayColor; //(Edit, BlueprintVisible, IsPlainOldData)
 	
 	
 };

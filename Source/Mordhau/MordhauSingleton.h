@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "Mordhau.h"
+#include "Emblem.h"
 #include "MordhauSingleton.generated.h"
 
 /**
@@ -39,7 +40,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		TArray<class UClass*> FemaleFaces; //(Edit, BlueprintVisible, ZeroConstructor)
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		TArray<class UClass*> Emblems; //(Edit, BlueprintVisible, ZeroConstructor)
+		TArray<TSubclassOf<UEmblem>> Emblems; //(Edit, BlueprintVisible, ZeroConstructor)
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		TArray<class UClass*> Badges; //(Edit, BlueprintVisible, ZeroConstructor)
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)

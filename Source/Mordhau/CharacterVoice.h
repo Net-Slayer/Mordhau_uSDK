@@ -13,24 +13,24 @@ UCLASS()
 class MORDHAU_API UCharacterVoice : public UMordhauInventoryItem
 {
 	GENERATED_BODY()
-	
+
 public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	class USoundCue*                                   VoiceCommands;
+		class USoundCue* VoiceCommands;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	class USoundCue*                                   Hurt;
+		class USoundCue* Hurt;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	class USoundCue*                                   Death;
+		class USoundCue* Death;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	class USoundCue*                                   AttackYell;
+		class USoundCue* AttackYell;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	class USoundCue*                                   Breathing;
+		class USoundCue* Breathing;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	class USoundCue*                                   Screaming;
+		class USoundCue* Screaming;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	struct FVector2D                                   PitchLimits;
+		struct FVector2D PitchLimits;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	TArray<int>                                        ClipCounts;
-	
-	
+		TArray<int> ClipCounts;
+
+
 };
