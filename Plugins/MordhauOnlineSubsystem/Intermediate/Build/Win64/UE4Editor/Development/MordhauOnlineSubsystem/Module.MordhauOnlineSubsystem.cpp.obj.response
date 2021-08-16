@@ -24,7 +24,7 @@
 /wd4838
 /we4668
 /I .
-/I "F:\documents\Unreal Projects\Mordhau\Mordhau\Plugins\MordhauOnlineSubsystem\Source\MordhauOnlineSubsystem\Private"
+/I F:\desktop\Mordhau_uSDK\uSDK1.2\Plugins\MordhauOnlineSubsystem\Source\MordhauOnlineSubsystem\Private
 /I ..\Intermediate\Build\Win64\UE4Editor\Inc\CoreUObject
 /I Runtime
 /I Runtime\CoreUObject\Public
@@ -402,22 +402,22 @@
 /I ThirdParty
 /I ThirdParty\libSampleRate\Public
 /I ThirdParty\libSampleRate
-/I "F:\documents\Unreal Projects\Mordhau\Mordhau\Plugins\MordhauOnlineSubsystem\Intermediate\Build\Win64\UE4Editor\Inc\MordhauOnlineSubsystem"
-/I "F:\documents\Unreal Projects\Mordhau\Mordhau\Plugins\MordhauOnlineSubsystem\Source"
-/I "F:\documents\Unreal Projects\Mordhau\Mordhau\Plugins\MordhauOnlineSubsystem\Source\MordhauOnlineSubsystem\Public"
-/I "F:\documents\Unreal Projects\Mordhau\Mordhau\Plugins\MordhauOnlineSubsystem\Source\MordhauOnlineSubsystem"
+/I F:\desktop\Mordhau_uSDK\uSDK1.2\Plugins\MordhauOnlineSubsystem\Intermediate\Build\Win64\UE4Editor\Inc\MordhauOnlineSubsystem
+/I F:\desktop\Mordhau_uSDK\uSDK1.2\Plugins\MordhauOnlineSubsystem\Source
+/I F:\desktop\Mordhau_uSDK\uSDK1.2\Plugins\MordhauOnlineSubsystem\Source\MordhauOnlineSubsystem\Public
+/I F:\desktop\Mordhau_uSDK\uSDK1.2\Plugins\MordhauOnlineSubsystem\Source\MordhauOnlineSubsystem
 /I "E:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.13.26128\INCLUDE"
 /I "C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um"
 /I "D:\Windows Kits\10\include\10.0.16299.0\ucrt"
 /I "D:\Windows Kits\10\include\10.0.16299.0\shared"
 /I "D:\Windows Kits\10\include\10.0.16299.0\um"
 /I "D:\Windows Kits\10\include\10.0.16299.0\winrt"
-/FI"F:\documents\Unreal Projects\Mordhau\Mordhau\Intermediate\Build\Win64\MordhauEditor\Development\Engine\SharedPCH.Engine.h"
-/Yu"F:\documents\Unreal Projects\Mordhau\Mordhau\Intermediate\Build\Win64\MordhauEditor\Development\Engine\SharedPCH.Engine.h"
-/Fp"F:\documents\Unreal Projects\Mordhau\Mordhau\Intermediate\Build\Win64\MordhauEditor\Development\Engine\SharedPCH.Engine.h.pch"
-"F:\documents\Unreal Projects\Mordhau\Mordhau\Plugins\MordhauOnlineSubsystem\Intermediate\Build\Win64\UE4Editor\Development\MordhauOnlineSubsystem\Module.MordhauOnlineSubsystem.cpp"
-/FI"F:\documents\Unreal Projects\Mordhau\Mordhau\Plugins\MordhauOnlineSubsystem\Intermediate\Build\Win64\UE4Editor\Development\MordhauOnlineSubsystem\Definitions.MordhauOnlineSubsystem.h"
-/Fo"F:\documents\Unreal Projects\Mordhau\Mordhau\Plugins\MordhauOnlineSubsystem\Intermediate\Build\Win64\UE4Editor\Development\MordhauOnlineSubsystem\Module.MordhauOnlineSubsystem.cpp.obj"
+/FI"F:\desktop\Mordhau_uSDK\uSDK1.2\Intermediate\Build\Win64\MordhauEditor\Development\Engine\SharedPCH.Engine.h"
+/Yu"F:\desktop\Mordhau_uSDK\uSDK1.2\Intermediate\Build\Win64\MordhauEditor\Development\Engine\SharedPCH.Engine.h"
+/Fp"F:\desktop\Mordhau_uSDK\uSDK1.2\Intermediate\Build\Win64\MordhauEditor\Development\Engine\SharedPCH.Engine.h.pch"
+"F:\desktop\Mordhau_uSDK\uSDK1.2\Plugins\MordhauOnlineSubsystem\Intermediate\Build\Win64\UE4Editor\Development\MordhauOnlineSubsystem\Module.MordhauOnlineSubsystem.cpp"
+/FI"F:\desktop\Mordhau_uSDK\uSDK1.2\Plugins\MordhauOnlineSubsystem\Intermediate\Build\Win64\UE4Editor\Development\MordhauOnlineSubsystem\Definitions.MordhauOnlineSubsystem.h"
+/Fo"F:\desktop\Mordhau_uSDK\uSDK1.2\Plugins\MordhauOnlineSubsystem\Intermediate\Build\Win64\UE4Editor\Development\MordhauOnlineSubsystem\Module.MordhauOnlineSubsystem.cpp.obj"
 /TP
 /GR-
 /W4

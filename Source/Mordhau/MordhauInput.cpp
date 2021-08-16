@@ -2,281 +2,314 @@
 
 #include "MordhauInput.h"
 
-
-struct FKey ReturnKey;
-FName ReturnName;
-//struct FInputAxisKeyMapping ReturnInput;
-
-
-void UMordhauInput::ShowGamepadTextInput(EInputTextMode TextMode, EInputLineMode LineMode, const FString& Description, const FString& ExistingText, int MaxLen)
-{
-
-}
-void UMordhauInput::ShowBindingPanel()
-{
-
-}
 void UMordhauInput::SetToggleSprint(int NewToggleSprint)
 {
-
 }
+
 void UMordhauInput::SetMouseYSensitivity(float NewSensitivity)
 {
-
 }
+
 void UMordhauInput::SetMouseYInverted(bool bNewInverted)
 {
-
 }
+
 void UMordhauInput::SetMouseXSensitivity(float NewSensitivity)
 {
-
 }
+
 void UMordhauInput::SetMouseXIsFlipAttackSide(int NewIsFlipAttackSide)
 {
-
 }
+
 void UMordhauInput::SetMouseXInverted(bool bNewInverted)
 {
-
 }
+
 void UMordhauInput::SetInverseAttackDirectionY(int NewInverseAttackDirectionX)
 {
-
 }
+
 void UMordhauInput::SetInverseAttackDirectionX(int NewInverseAttackDirectionX)
 {
-
 }
+
 void UMordhauInput::SetGamepadRightYSensitivity(float NewSensitivity)
 {
-
 }
+
 void UMordhauInput::SetGamepadRightYInverted(bool bNewInverted)
 {
-
 }
+
 void UMordhauInput::SetGamepadRightYDeadzone(float NewDeadzone)
 {
-
 }
+
 void UMordhauInput::SetGamepadRightXSensitivity(float NewSensitivity)
 {
-
 }
+
 void UMordhauInput::SetGamepadRightXInverted(bool bNewInverted)
 {
-
 }
+
 void UMordhauInput::SetGamepadRightXDeadzone(float NewDeadzone)
 {
-
 }
+
 void UMordhauInput::SetGamepadLeftYSensitivity(float NewSensitivity)
 {
-
 }
+
 void UMordhauInput::SetGamepadLeftYInverted(bool bNewInverted)
 {
-
 }
+
 void UMordhauInput::SetGamepadLeftYDeadzone(float NewDeadzone)
 {
-
 }
+
 void UMordhauInput::SetGamepadLeftXSensitivity(float NewSensitivity)
 {
-
 }
+
 void UMordhauInput::SetGamepadLeftXInverted(bool bNewInverted)
 {
-
 }
+
 void UMordhauInput::SetGamepadLeftXDeadzone(float NewDeadzone)
 {
-
 }
+
 void UMordhauInput::SetControlScheme(int NewControlScheme)
 {
-
 }
+
 void UMordhauInput::SetAngleAttacksWithMovement(int NewAngleAttacksWithMovement)
 {
-
 }
+
 void UMordhauInput::SetAngleAttackAfterPress(int NewAngleAttackAfterPress)
 {
-
 }
-void UMordhauInput::SetActiveActionSet(EActionSet ActionSet)
-{
 
-}
 void UMordhauInput::SaveSettings()
 {
-
 }
+
 void UMordhauInput::RestoreDefaultSettings()
 {
-
 }
+
 int UMordhauInput::GetToggleSprint()
 {
-return 1;
+	return 0;
 }
-float UMordhauInput::GetMouseYSensitivity()
+
+FInputAxisKeyMapping UMordhauInput::GetSecondaryAxisKeyBinding(const FName & AxisName)
 {
-return 1;
+	return FInputAxisKeyMapping();
 }
-bool UMordhauInput::GetMouseYInverted()
+
+FInputActionKeyMapping UMordhauInput::GetSecondaryActionKeyBinding(const FName & ActionName)
 {
-return 1;
+	return FInputActionKeyMapping();
 }
-float UMordhauInput::GetMouseXSensitivity()
+
+FInputAxisKeyMapping UMordhauInput::GetPrimaryAxisKeyBinding(const FName & AxisName)
 {
-return 1;
+	return FInputAxisKeyMapping();
 }
-int UMordhauInput::GetMouseXIsFlipAttackSide()
+
+FInputActionKeyMapping UMordhauInput::GetPrimaryActionKeyBinding(const FName & ActionName)
 {
-return 1;
+	return FInputActionKeyMapping();
 }
-bool UMordhauInput::GetMouseXInverted()
+
+float UMordhauInput::GetMouseYSensitivity() const
 {
-return 1;
+	return 0.0f;
 }
-struct FVector2D UMordhauInput::GetMouseSensitivityLimits()
+
+bool UMordhauInput::GetMouseYInverted() const
 {
-return { 1,1 };
+	return false;
 }
-int UMordhauInput::GetInverseAttackDirectionY()
+
+float UMordhauInput::GetMouseXSensitivity() const
 {
-return 1;
+	return 0.0f;
 }
-int UMordhauInput::GetInverseAttackDirectionX()
+
+int UMordhauInput::GetMouseXIsFlipAttackSide() const
 {
-return 1;
+	return 0;
 }
-struct FVector2D UMordhauInput::GetGamepadSensitivityLimits()
+
+bool UMordhauInput::GetMouseXInverted() const
 {
-return { 1,1 };
+	return false;
 }
-float UMordhauInput::GetGamepadRightYSensitivity()
+
+FVector2D UMordhauInput::GetMouseSensitivityLimits() const
 {
-return 1;
+	return FVector2D();
 }
-bool UMordhauInput::GetGamepadRightYInverted()
+
+int UMordhauInput::GetInverseAttackDirectionY() const
 {
-return 1;
+	return 0;
 }
-float UMordhauInput::GetGamepadRightYDeadzone()
+
+int UMordhauInput::GetInverseAttackDirectionX() const
 {
-return 1;
+	return 0;
 }
-float UMordhauInput::GetGamepadRightXSensitivity()
+
+FVector2D UMordhauInput::GetGamepadSensitivityLimits() const
 {
-return 1;
+	return FVector2D();
 }
-bool UMordhauInput::GetGamepadRightXInverted()
+
+float UMordhauInput::GetGamepadRightYSensitivity() const
 {
-return 1;
+	return 0.0f;
 }
-float UMordhauInput::GetGamepadRightXDeadzone()
+
+bool UMordhauInput::GetGamepadRightYInverted() const
 {
-return 1;
+	return false;
 }
-float UMordhauInput::GetGamepadLeftYSensitivity()
+
+float UMordhauInput::GetGamepadRightYDeadzone() const
 {
-return 1;
+	return 0.0f;
 }
-bool UMordhauInput::GetGamepadLeftYInverted()
+
+float UMordhauInput::GetGamepadRightXSensitivity() const
 {
-return 1;
+	return 0.0f;
 }
-float UMordhauInput::GetGamepadLeftYDeadzone()
+
+bool UMordhauInput::GetGamepadRightXInverted() const
 {
-return 1;
+	return false;
 }
-float UMordhauInput::GetGamepadLeftXSensitivity()
+
+float UMordhauInput::GetGamepadRightXDeadzone() const
 {
-return 1;
+	return 0.0f;
 }
-bool UMordhauInput::GetGamepadLeftXInverted()
+
+float UMordhauInput::GetGamepadLeftYSensitivity() const
 {
-return 1;
+	return 0.0f;
 }
-float UMordhauInput::GetGamepadLeftXDeadzone()
+
+bool UMordhauInput::GetGamepadLeftYInverted() const
 {
-return 1;
+	return false;
 }
-struct FVector2D UMordhauInput::GetGamepadDeadzoneLimits()
+
+float UMordhauInput::GetGamepadLeftYDeadzone() const
 {
-return { 1,1 };
+	return 0.0f;
 }
-int UMordhauInput::GetControlScheme()
+
+float UMordhauInput::GetGamepadLeftXSensitivity() const
 {
-return 1;
+	return 0.0f;
 }
-float UMordhauInput::GetAxisScale(const struct FInputAxisKeyMapping& AxisKeyBinding)
+
+bool UMordhauInput::GetGamepadLeftXInverted() const
 {
-return 1;
+	return false;
 }
-FName UMordhauInput::GetAxisOppositeDirectionName(const FName& AxisName)
+
+float UMordhauInput::GetGamepadLeftXDeadzone() const
 {
-	return ReturnName;
+	return 0.0f;
 }
-FName UMordhauInput::GetAxisName(const struct FInputAxisKeyMapping& AxisKeyBinding)
+
+FVector2D UMordhauInput::GetGamepadDeadzoneLimits() const
 {
-	return ReturnName;
+	return FVector2D();
 }
-//void UMordhauInput::GetAxisKeyBindings(TArray<struct FInputAxisKeyMapping>* AxisKeyBindings)
-//{
-//
-//}
-//struct FInputAxisKeyMapping UMordhauInput::GetAxisKeyBinding(const FName& AxisName)
-//{
-//
-//}
-struct FKey UMordhauInput::GetAxisKey(const struct FInputAxisKeyMapping& AxisKeyBinding)
+
+int UMordhauInput::GetControlScheme() const
 {
-	return ReturnKey;
+	return 0;
 }
+
+void UMordhauInput::GetConsoleKeyBindings(TArray<struct FKey> & ConsoleKeyBindings)
+{
+}
+
+float UMordhauInput::GetAxisScale(const FInputAxisKeyMapping & AxisKeyBinding)
+{
+	return 0.0f;
+}
+
+FName UMordhauInput::GetAxisOppositeDirectionName(const FName & AxisName)
+{
+	return FName();
+}
+
+FName UMordhauInput::GetAxisName(const FInputAxisKeyMapping & AxisKeyBinding)
+{
+	return FName();
+}
+
+void UMordhauInput::GetAxisKeyBindings(TArray<struct FInputAxisKeyMapping> & AxisKeyBindings)
+{
+}
+
+FKey UMordhauInput::GetAxisKey(const FInputAxisKeyMapping & AxisKeyBinding)
+{
+	return FKey();
+}
+
 int UMordhauInput::GetAngleAttacksWithMovement()
 {
-return 1;
+	return 0;
 }
+
 int UMordhauInput::GetAngleAttackAfterPress()
 {
-return 1;
+	return 0;
 }
-FName UMordhauInput::GetActionName(const struct FInputActionKeyMapping& ActionKeyBinding)
+
+FName UMordhauInput::GetActionName(const FInputActionKeyMapping & ActionKeyBinding)
 {
-	return ReturnName;
+	return FName();
 }
-//void UMordhauInput::GetActionKeyBindings(TArray<struct FInputActionKeyMapping>* ActionKeyBindings)
-//{
-//
-//}
-//struct FInputActionKeyMapping UMordhauInput::GetActionKeyBinding(const FName& ActionName)
-//{
-//	return ReturnInput;
-//}
-struct FKey UMordhauInput::GetActionKey(const struct FInputActionKeyMapping& ActionKeyBinding)
+
+void UMordhauInput::GetActionKeyBindings(TArray<struct FInputActionKeyMapping> & ActionKeyBindings)
 {
-	return ReturnKey;
 }
+
+FKey UMordhauInput::GetActionKey(const FInputActionKeyMapping & ActionKeyBinding)
+{
+	return FKey();
+}
+
 void UMordhauInput::ClearKeyBindings()
 {
-
 }
+
 void UMordhauInput::ApplySettings()
 {
-
 }
-void UMordhauInput::AddAxisKeyBinding(const FName& AxisName, const struct FKey& Key)
-{
 
+void UMordhauInput::AddConsoleKeyBinding(const FKey & Key)
+{
 }
-void UMordhauInput::AddActionKeyBinding(const FName& ActionName, const struct FKey& Key)
-{
 
+void UMordhauInput::AddAxisKeyBinding(const FName & AxisName, const FKey & Key)
+{
+}
+
+void UMordhauInput::AddActionKeyBinding(const FName & ActionName, const FKey & Key)
+{
 }

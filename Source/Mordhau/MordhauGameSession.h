@@ -8,11 +8,12 @@
 #include "DummyActor.h"
 #include "MordhauGameSession.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnRequestBan);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnRequestUnban);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnRequestMute);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnRequestUnmute);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnRequestKick);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_FiveParams(FOnRequestBan, bool, bBanResult, const FString&, CallerPlayfabID, const FString&, TargetPlayfabID, const int32, BanDuration, const FText&, BanReason);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnRequestUnban, bool, bUnbanResult, const FString&, PlayfabID);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FOnRequestMute, bool, bMuteResult, const FString&, CallerPlayfabID, const FString&, TargetPlayfabID, const int32, MuteDuration);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnRequestUnmute, bool, bUnmuteResult, const FString&, PlayfabID);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FOnRequestKick, bool, bKickResult, const FString&, CallerPlayfabID, const FString&, TargetPlayfabID, const FText&, KickReason);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnMatchStateChanged, const FString&, NewMatchState);
 UCLASS(Blueprintable)
 class MORDHAU_API AMordhauGameSession : public AGameSession
 {

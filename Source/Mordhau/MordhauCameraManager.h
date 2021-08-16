@@ -54,7 +54,7 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void SetViewTargetBP(class AActor* NewTarget);
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintCallable, meta = (AutoCreateRefTerm = "NewCameraStyle"))
 	void SetCameraStyleBP(const FName& NewCameraStyle);
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void OnHitFlash(bool bIsDirectional, class AActor* Source);

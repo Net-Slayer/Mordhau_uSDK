@@ -9,118 +9,117 @@
 #include "MordhauMovementComponent.generated.h"
 
 /**
- * 
- */
+*
+*/
 /*UENUM(BlueprintType)
 enum class EMovementModifier : uint8
 {
-	Walk = 0,
-	Strafe = 1,
-	Backpedal = 2,
-	PartialSprint = 3,
-	Sprint = 4,
-	Rush = 5,
-	Chasing = 6,
-	Supersprint = 7,
-	EMovementModifier_MAX = 8
+Walk = 0,
+Strafe = 1,
+Backpedal = 2,
+PartialSprint = 3,
+Sprint = 4,
+Rush = 5,
+Chasing = 6,
+Supersprint = 7,
+EMovementModifier_MAX = 8
 };*/
 UCLASS(Blueprintable, ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class MORDHAU_API UMordhauMovementComponent : public UAdvancedCharacterMovement
 {
 	GENERATED_BODY()
-	
 
 public:
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-	float                                              TurnSprintPreventionDecaySpeed;
+		float TurnSprintPreventionDecaySpeed;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              TurnSprintPreventionDuration;
+		float TurnSprintPreventionDuration;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              TurnSprintPreventionThreshold;
+		float TurnSprintPreventionThreshold;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              ChasingSprintTimeStart;
+		float ChasingSprintTimeStart;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              RushSprintTimeStart;
+		float RushSprintTimeStart;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              BeingChasedSlowdownTimeFactor;
+		float BeingChasedSlowdownTimeFactor;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              MaxAngleToChase;
+		float MaxAngleToChase;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		FVector                                     ChasingMaxDistance;
+		FVector ChasingMaxDistance;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		FVector                                     ChasedMaxDistance;
+		FVector ChasedMaxDistance;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              TimeToBreakUsChasing;
+		float TimeToBreakUsChasing;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              TimeToBreakUsBeingChased;
+		float TimeToBreakUsBeingChased;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              MinTimeToStartChasing;
+		float MinTimeToStartChasing;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              MinTimeToStartBeingChased;
+		float MinTimeToStartBeingChased;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              MaxWalkSpeedCrouchedWithRatPerk;
+		float MaxWalkSpeedCrouchedWithRatPerk;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              SprintModifier;
+		float SprintModifier;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              PartialSprintModifier;
+		float PartialSprintModifier;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              SupersprintModifier;
+		float SupersprintModifier;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              BackpedalModifier;
+		float BackpedalModifier;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              StrafeModifier;
+		float StrafeModifier;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              WalkAcceleration;
+		float WalkAcceleration;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              PartialSprintAcceleration;
+		float PartialSprintAcceleration;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              SprintAcceleration;
+		float SprintAcceleration;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              SprintTimeToReachMaxSprint;
+		float SprintTimeToReachMaxSprint;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              SprintTime;
+		float SprintTime;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              SupersprintAcceleration;
+		float SupersprintAcceleration;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              MotionSpeedFactor;
+		float MotionSpeedFactor;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              MotionBackpedalSpeedFactor;
+		float MotionBackpedalSpeedFactor;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              EquipmentBackpedalSpeedFactor;
+		float EquipmentBackpedalSpeedFactor;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              ArmorSpeedFactor;
+		float ArmorSpeedFactor;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              ArmorAccelerationFactor;
+		float ArmorAccelerationFactor;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              EquipmentSpeedBonusPercentage;
+		float EquipmentSpeedBonusPercentage;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              EquipmentAccelerationBonusPercentage;
+		float EquipmentAccelerationBonusPercentage;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		EMovementModifier                                  MovementModifier;
+		EMovementModifier MovementModifier;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bWantsSprint;
+		bool bWantsSprint;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bSprintIsAllowed;
+		bool bSprintIsAllowed;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bOnlyPartialSprint;
+		bool bOnlyPartialSprint;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		bool                                               bWantsSupersprint;
+		bool bWantsSupersprint;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              KnockbackGroundFriction;
+		float KnockbackGroundFriction;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              KnockbackFallingLateralFriction;
+		float KnockbackFallingLateralFriction;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              KnockbackUpImpulse;
+		float KnockbackUpImpulse;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              MaxSpeedFalling;
+		float MaxSpeedFalling;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              BaseGroundFriction;
+		float BaseGroundFriction;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              BaseFallingLateralFriction;
+		float BaseFallingLateralFriction;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              KnockbackDuration;
+		float KnockbackDuration;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		float                                              BrakingDecelerationFallingTooFast;
+		float BrakingDecelerationFallingTooFast;
 
 	UFUNCTION(BlueprintCallable, Category = "MordhauMovementFns")
 		void Knockback(const struct FVector& Amount);
@@ -130,7 +129,4 @@ public:
 		float GetSpeedFactor();
 	UFUNCTION(BlueprintCallable, Category = "MordhauMovementFns")
 		float GetAccelerationFactor();
-
-	
-	
 };

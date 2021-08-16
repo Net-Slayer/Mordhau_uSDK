@@ -575,10 +575,13 @@ public:
 		static float FInterpConstantToSeparate(float Current, float Target, float DeltaTime, float IncreaseSpeed, float DecreaseSpeed);
 	UFUNCTION(BlueprintCallable, Category = "Mordhau Utility Library")
 		static bool FindTeleportSpot(class AActor* Actor, const struct FVector& InLocation, const struct FRotator& InRotation, struct FVector& OutLocation);
-	UFUNCTION(BlueprintCallable, Category = "Mordhau Utility Library")
+	
+	// initially interpreted as non-pure
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Mordhau Utility Library")
 		static struct FPlayFabPlayer FindPlayFabPlayer(const FString& PlayerNameOrPlayFabID);
-	UFUNCTION(BlueprintCallable, Category = "Mordhau Utility Library")
-		static class AMordhauPlayerState* FindPlayerState(const FString& PlayerNameOrPlayFabID);
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Mordhau Utility Library")
+		static class AMordhauPlayerState* FindPlayerState(const FString& PlayerNameOrPlayFabID); 
+
 	UFUNCTION(BlueprintCallable, Category = "Mordhau Utility Library")
 		static bool FindCircleIntersectionPoints(const struct FVector2D& CenterA, float RadiusA, const struct FVector2D& CenterB, float RadiusB, struct FVector2D& PointA, struct FVector2D& PointB);
 	UFUNCTION(BlueprintCallable, Category = "Mordhau Utility Library")

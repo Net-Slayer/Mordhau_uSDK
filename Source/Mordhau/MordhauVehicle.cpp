@@ -8,7 +8,12 @@
 
 AMordhauVehicle::AMordhauVehicle(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer
-		.SetDefaultSubobjectClass<UCharacterMeshComponent>(TEXT("CharacterMesh0"))){}
+		.SetDefaultSubobjectClass<UCharacterMeshComponent>(TEXT("CharacterMesh0")))
+{
+	CharacterVoiceComponent->SetActive(false);
+	CharacterVoiceComponent->DestroyComponent();
+	}
+	
 
 
 

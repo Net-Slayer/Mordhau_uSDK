@@ -23,7 +23,8 @@ public:
 		bool bHasFadedOutProcedural;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Booleans")
 		bool bDoReleaseBounceProcedural;
-
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Structs")
+		struct FBlockResult BlockResult; //(BlueprintVisible)
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Enums")
 		EAttackMove QueuedMove;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Enums")

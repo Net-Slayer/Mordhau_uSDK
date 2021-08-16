@@ -232,21 +232,11 @@ UENUM(BlueprintType)
 enum class EBlockedReason : uint8
 {
 	Parry = 0,
-	DisarmParry = 1,
-	StunParry = 2,
-	ChamberLeft = 3,
-	ChamberRight = 4,
-	WorldFail = 5,
-	ClashA = 6,
-	ClashB = 7,
-	HitCancel = 8,
-	WorldSuccess = 9,
-	Hit = 10,
-	EnvironmentHit = 11,
-	RangedParry = 12,
-	RiposteParry = 13,
-	DisarmClash = 14,
-	EBlockedReason_MAX = 15
+	Chamber = 1,
+	World = 2,
+	Clash = 3,
+	Hit = 4,
+	EBlockedReason_MAX = 5
 };
 
 UENUM(BlueprintType)

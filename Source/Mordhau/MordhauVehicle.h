@@ -178,7 +178,7 @@ public:
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "MordhauVehicleEvents")
 		void DriverLateTick(class AMordhauCharacter* FromDriver, float DeltaTime);
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = "MordhauVehicleEvents")
-		bool CanDrive(class AMordhauCharacter* Character);
+		bool CanDrive(class AMordhauCharacter* Character) const;
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "MordhauVehicleEvents")
 		void RequestUse();
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauVehicleEvents")

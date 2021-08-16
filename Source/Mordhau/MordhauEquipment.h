@@ -6,6 +6,7 @@
 #include "MordhauActor.h"
 #include "Mordhau.h"
 #include "MordhauProjectile.h"
+#include "Quiver.h"
 #include "MordhauEquipment.generated.h"
 
 /**
@@ -437,7 +438,7 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "ClassRefs")
 		class TSubclassOf<AMordhauProjectile> ProjectileClass; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "ClassRefs")
-		class UClass* Quiver; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+		class TSubclassOf<UQuiver> Quiver; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "ClassRefs")
 		class UClass* RangedReleaseCameraShake; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "ClassRefs")

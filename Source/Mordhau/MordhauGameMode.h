@@ -10,6 +10,9 @@
 #include "UnrealNetwork.h"
 #include "MordhauGameMode.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FOnMessageBroadcasted, AActor*, Sender, const FString &, Msg, FName, Type);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnAfterLogin, APlayerController*, NewPlayer);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnBeforeLogout, AController*, Exiting);
 UCLASS()
 class MORDHAU_API AMordhauGameMode : public AGameMode
 {
@@ -120,21 +123,14 @@ public:
 
 
 
+	UPROPERTY(BlueprintAssignable)
+	FOnMessageBroadcasted OnMessageBroadcasted; //(ZeroConstructor, InstancedReference, BlueprintAssignable)
 	
-// 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-// 	struct FScriptMulticastDelegate  OnRconStringCommand;  //(ZeroConstructor, InstancedReference, BlueprintAssignable)
-// 	
-// 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-// 	TArray<struct FRconEventStruct>  RconEvents;  //(BlueprintVisible, ZeroConstructor)
-// 	
-// 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-// 	struct FScriptMulticastDelegate  OnMessageBroadcasted; //(ZeroConstructor, InstancedReference, BlueprintAssignable)
-// 	
-// 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-// 	struct FScriptMulticastDelegate  OnAfterLogin;   //(ZeroConstructor, InstancedReference, BlueprintAssignable)
-// 	
-// 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-// 	struct FScriptMulticastDelegate  OnBeforeLogout; //(ZeroConstructor, InstancedReference, BlueprintAssignable)
+	UPROPERTY(BlueprintAssignable)
+	FOnAfterLogin OnAfterLogin;   //(ZeroConstructor, InstancedReference, BlueprintAssignable)
+	
+	UPROPERTY(BlueprintAssignable)
+	FOnBeforeLogout OnBeforeLogout; //(ZeroConstructor, InstancedReference, BlueprintAssignable)
 
 
 	UFUNCTION(BlueprintCallable)

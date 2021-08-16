@@ -33,6 +33,15 @@
 		{
 			"Name": "BlueprintMaterialTextureNodes",
 			"Enabled": true
+		},
+		{
+			"Name": "GamepadUMGPlugin",
+			"Enabled": true
+		},
+		{
+			"Name": "CheckCompileBP",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/be3b2113774d4c919b374108984ca3fc"
 		}
 	]
 }

@@ -65,6 +65,7 @@
 "E:\Epic\UE_4.20\Engine\Intermediate\Build\Win64\UE4Editor\Development\CoreUObject\UE4Editor-CoreUObject.lib"
 "E:\Epic\UE_4.20\Engine\Intermediate\Build\Win64\UE4Editor\Development\Engine\UE4Editor-Engine.lib"
 "E:\Epic\UE_4.20\Engine\Intermediate\Build\Win64\UE4Editor\Development\InputCore\UE4Editor-InputCore.lib"
+"F:\documents\Unreal Projects\Mordhau\Mordhau\Intermediate\Build\Win64\UE4Editor\Development\Mordhau\UE4Editor-Mordhau.lib"
 /OUT:"F:\documents\Unreal Projects\Mordhau\Mordhau\Plugins\GamepadUMGPlugin\Binaries\Win64\UE4Editor-GamepadUMGPlugin.dll"
 /IMPLIB:"F:\documents\Unreal Projects\Mordhau\Mordhau\Plugins\GamepadUMGPlugin\Intermediate\Build\Win64\UE4Editor\Development\GamepadUMGPlugin\UE4Editor-GamepadUMGPlugin.suppressed.lib"
 /PDB:"F:\documents\Unreal Projects\Mordhau\Mordhau\Plugins\GamepadUMGPlugin\Binaries\Win64\UE4Editor-GamepadUMGPlugin.pdb"

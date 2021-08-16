@@ -37,7 +37,7 @@ UPROPERTY(EditAnywhere, BlueprintReadWrite)
 
 UFUNCTION(BlueprintCallable, Category = "MordhauSpectatorFns")
 void TertiarySpectatorAction();
-UFUNCTION(BlueprintCallable, Category = "MordhauSpectatorFns")
+UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = "MordhauSpectatorFns")
 void SwitchToFreeCam();
 UFUNCTION(BlueprintCallable, Category = "MordhauSpectatorFns")
 void SecondarySpectatorAction();

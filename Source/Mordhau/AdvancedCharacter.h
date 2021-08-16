@@ -681,7 +681,7 @@ public:
 		EMordhauDamageType GetLastNetDamageType();
 	UFUNCTION(BlueprintCallable, Category = "AdvCharFns")
 		class AActor* GetLastNetDamageSource();
-	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "AdvCharFns")
+	UFUNCTION(BlueprintCallable, BlueprintGetter, BlueprintPure, Category = "AdvCharFns")
 		bool GetIsDead();
 	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "AdvCharFns")
 		bool GetIsBurning();
