@@ -1,0 +1,13 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-MordhauOnlineSubsystem.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"F:\desktop\Mordhau_uSDK\uSDK1.2\Intermediate\Build\Win64\MordhauEditor\Development\Engine\SharedPCH.Engine.h.obj"
+"F:\desktop\Mordhau_uSDK\uSDK1.2\Plugins\MordhauOnlineSubsystem\Intermediate\Build\Win64\UE4Editor\Development\MordhauOnlineSubsystem\Module.MordhauOnlineSubsystem.cpp.obj"
+"F:\desktop\Mordhau_uSDK\uSDK1.2\Plugins\MordhauOnlineSubsystem\Intermediate\Build\Win64\UE4Editor\Development\MordhauOnlineSubsystem\Module.MordhauOnlineSubsystem.gen.cpp.obj"
+"F:\desktop\Mordhau_uSDK\uSDK1.2\Plugins\MordhauOnlineSubsystem\Intermediate\Build\Win64\UE4Editor\Development\MordhauOnlineSubsystem\PCLaunch.rc.res"
+/OUT:"F:\desktop\Mordhau_uSDK\uSDK1.2\Plugins\MordhauOnlineSubsystem\Intermediate\Build\Win64\UE4Editor\Development\MordhauOnlineSubsystem\UE4Editor-MordhauOnlineSubsystem.lib"

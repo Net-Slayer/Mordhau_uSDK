@@ -1,0 +1,13 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-GamepadUMGPlugin.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"F:\documents\Unreal Projects\Mordhau\Mordhau\Intermediate\Build\Win64\MordhauEditor\Development\Engine\SharedPCH.Engine.h.obj"
+"F:\documents\Unreal Projects\Mordhau\Mordhau\Plugins\GamepadUMGPlugin\Intermediate\Build\Win64\UE4Editor\Development\GamepadUMGPlugin\Module.GamepadUMGPlugin.cpp.obj"
+"F:\documents\Unreal Projects\Mordhau\Mordhau\Plugins\GamepadUMGPlugin\Intermediate\Build\Win64\UE4Editor\Development\GamepadUMGPlugin\Module.GamepadUMGPlugin.gen.cpp.obj"
+"F:\documents\Unreal Projects\Mordhau\Mordhau\Plugins\GamepadUMGPlugin\Intermediate\Build\Win64\UE4Editor\Development\GamepadUMGPlugin\PCLaunch.rc.res"
+/OUT:"F:\documents\Unreal Projects\Mordhau\Mordhau\Plugins\GamepadUMGPlugin\Intermediate\Build\Win64\UE4Editor\Development\GamepadUMGPlugin\UE4Editor-GamepadUMGPlugin.lib"
