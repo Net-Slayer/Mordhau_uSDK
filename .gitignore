@@ -81,3 +81,7 @@ Plugins/*/Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
+
+# UE4 Texture Assets
+textures/*
+Textures/*
