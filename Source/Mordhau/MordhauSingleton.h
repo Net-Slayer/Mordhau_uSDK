@@ -81,6 +81,16 @@ public:
 		TArray<struct FCharacterProfile> BotCharacterProfiles; //(BlueprintVisible, ZeroConstructor, Config)
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		TArray<struct FCharacterProfile> DefaultBotCharacterProfiles; //(Edit, BlueprintVisible, ZeroConstructor)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TArray<TSoftClassPtr<UObject>> UpperChestWearables; //(Edit, BlueprintVisible, ZeroConstructor)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TArray<TSoftClassPtr<UObject>> LegsWearables; //(Edit, BlueprintVisible, ZeroConstructor)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TArray<TSoftClassPtr<UObject>> HeadWearables; //(Edit, BlueprintVisible, ZeroConstructor)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TArray<TSoftClassPtr<UObject>> Equipment; //(Edit, BlueprintVisible, ZeroConstructor)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TArray<TSoftClassPtr<UObject>> Voices; //(Edit, BlueprintVisible, ZeroConstructor)
 
 	UFUNCTION(BlueprintCallable)
 		void UpdatePreviousLaunchInventory();
