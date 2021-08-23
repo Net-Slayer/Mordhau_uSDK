@@ -38,5 +38,10 @@
 			"Name": "GamepadUMGPlugin",
 			"Enabled": true
 		}
+	],
+	"TargetPlatforms": [
+		"AllDesktop",
+		"WindowsNoEditor",
+		"LinuxNoEditor"
 	]
 }
