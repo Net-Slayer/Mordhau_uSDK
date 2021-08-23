@@ -83,5 +83,5 @@ Plugins/*/Intermediate/*
 DerivedDataCache/*
 
 # UE4 Texture Assets
-Content/*/textures/*
-Content/*/Textures/*
+Content/**/textures/*
+Content/**/Textures/*
