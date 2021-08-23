@@ -52,7 +52,7 @@
 
 # Binary Files
 Binaries/*
-Plugins/*/Binaries/**
+Plugins/*/Binaries/*
 
 # Builds
 Build/*
@@ -83,5 +83,5 @@ Plugins/*/Intermediate/*
 DerivedDataCache/*
 
 # UE4 Texture Assets
-textures/*
-Textures/*
+Content/*/textures/*
+Content/*/Textures/*
