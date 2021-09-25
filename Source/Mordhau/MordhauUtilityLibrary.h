@@ -6,7 +6,7 @@
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "Mordhau.h"
 #include "MordhauTypes.h"
-#include "TextProperty.h"
+#include "UObject/TextProperty.h"
 #include "Engine/EngineTypes.h"
 #include "DummyActor.h"
 #include "Kismet/KismetSystemLibrary.h"
@@ -26,7 +26,6 @@ public:
 };
 
 DECLARE_DYNAMIC_DELEGATE_TwoParams(FUtilGetPlayFabIDsFromSteamIDsDelegate, bool, bSuccess, const FSteamPlayFabConversionResult&, OutMap);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnRconStringCommand, const FString &, Payload);
 UCLASS(Blueprintable)
 class MORDHAU_API UMordhauUtilityLibrary : public UBlueprintFunctionLibrary
 {
@@ -91,8 +90,7 @@ public:
 		static bool SaveStringToFile(const FString & FileName, const FString & String);
 	UFUNCTION(BlueprintCallable, Category = "Mordhau Utility Library")
 		static void PrintToConsoleAndLog(FString String);
-	UPROPERTY(BlueprintAssignable, Category = "MordhauGameMode|Rcon")
-		FOnRconStringCommand OnRconStringCommand;
+
 
 	//ExtraFunctions Season 3 by Battlefield Recapitator
 	/**

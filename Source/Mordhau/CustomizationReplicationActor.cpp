@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "CustomizationReplicationActor.h"
-#include "UnrealNetwork.h"
+#include "Net/UnrealNetwork.h"
 
 
 void ACustomizationReplicationActor::UpdateCharacterProfile(class AMordhauCharacter* Character)

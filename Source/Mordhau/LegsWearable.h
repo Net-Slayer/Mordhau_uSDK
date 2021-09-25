@@ -20,6 +20,8 @@ public:
 		struct FVector LegsBouncyLimits;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		uint8 DefaultFeet;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TArray<TSoftClassPtr<UObject>> FeetWearables;
 	UFUNCTION(BlueprintCallable, Category = "LegsWearableFns")
 		int GetFeetWearablesNum();
 	UFUNCTION(BlueprintCallable, Category = "LegsWearableFns")

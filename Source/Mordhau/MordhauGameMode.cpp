@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "MordhauGameMode.h"
-#include "UnrealNetwork.h"
+#include "Net/UnrealNetwork.h"
 
 void AMordhauGameMode::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & OutLifetimeProps) const
 {

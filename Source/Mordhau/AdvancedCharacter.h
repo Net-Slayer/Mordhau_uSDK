@@ -7,7 +7,7 @@
 //#include "Mordhau_classes.hpp"
 #include "Engine/EngineTypes.h"
 #include "Components/AudioComponent.h"
-#include "Delegate.h"
+#include "Delegates/Delegate.h"
 #include "Mordhau.h"
 #include "TagSystemComponent.h"
 #include "DamageableComponent.h"
@@ -681,10 +681,10 @@ public:
 		EMordhauDamageType GetLastNetDamageType();
 	UFUNCTION(BlueprintCallable, Category = "AdvCharFns")
 		class AActor* GetLastNetDamageSource();
-	UFUNCTION(BlueprintCallable, BlueprintGetter, BlueprintPure, Category = "AdvCharFns")
-		bool GetIsDead();
 	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "AdvCharFns")
-		bool GetIsBurning();
+		bool GetIsDead() const;
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "AdvCharFns")
+		bool GetIsBurning() const;
 	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "AdvCharFns")
 		float GetDistanceIntoSmokeFieldSmoothed();
 	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "AdvCharFns")

@@ -5,7 +5,7 @@
 #include "LODSkeletalMeshComponent.h"
 #include "MordhauCapsuleComponent.h"
 #include "LateTickComponent.h"
-#include "UnrealNetwork.h"
+#include "Net/UnrealNetwork.h"
 
 AAdvancedCharacter::AAdvancedCharacter(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer
@@ -157,12 +157,12 @@ AActor * AAdvancedCharacter::GetLastNetDamageSource()
 	return nullptr;
 }
 
-bool AAdvancedCharacter::GetIsDead()
+bool AAdvancedCharacter::GetIsDead() const
 {
 	return false;
 }
 
-bool AAdvancedCharacter::GetIsBurning()
+bool AAdvancedCharacter::GetIsBurning() const
 {
 	return false;
 }

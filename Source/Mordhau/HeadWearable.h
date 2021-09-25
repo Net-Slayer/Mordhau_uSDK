@@ -16,6 +16,8 @@ class MORDHAU_API UHeadWearable : public UMordhauWearable
 public:
 	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly)
 		uint8 DefaultCoif; //(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TArray<TSoftClassPtr<UObject>> CoifWearables;
 	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly)
 		float HelmetAOOffset; //(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly)

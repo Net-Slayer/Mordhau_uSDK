@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "BotBehaviorProfile.h"
-#include "UnrealNetwork.h"
+#include "Net/UnrealNetwork.h"
 
 
 void UBotBehaviorProfile::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & OutLifetimeProps) const

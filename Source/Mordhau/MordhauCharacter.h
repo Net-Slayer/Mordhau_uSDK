@@ -365,7 +365,7 @@ public:
 
 	UPROPERTY()
 		TWeakObjectPtr<class AActor> CurrentlyTracking;
-	UPROPERTY()
+	UPROPERTY(BlueprintReadWrite)
 		TWeakObjectPtr<class AActor> InteractionTarget;
 	UPROPERTY()
 		TWeakObjectPtr<class AActor> LastMovementFrontalHitActor;

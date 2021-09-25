@@ -5,6 +5,7 @@
 #include "GameFramework/GameState.h"
 #include "Mordhau.h"
 #include "Engine.h"
+#include "MordhauEquipment.h"
 #include "MordhauGameState.generated.h"
 
 /**
@@ -184,6 +185,14 @@ public:
 		float                                              LastBotClimbTime;                                         // 0x08B0(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	UPROPERTY()
 		TArray<TWeakObjectPtr<class UDecalComponent>>      BloodDecalsArray;                                         // 0x08B8(0x0010) (ExportObject, ZeroConstructor)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TSet<TSubclassOf<AMordhauEquipment>> BannedEquipment; // 0x0670(0x0050) UNKNOWN PROPERTY: SetProperty Mordhau.MordhauGameState.BannedEquipment
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TSet<uint8> BannedPerks; // 0x06C0(0x0050) UNKNOWN PROPERTY: SetProperty Mordhau.MordhauGameState.BannedPerks
+
+
+
+
 
 	UFUNCTION(BlueprintCallable, Category = "MordhauGameStateFns")
 		void UpdateSoundGroups();

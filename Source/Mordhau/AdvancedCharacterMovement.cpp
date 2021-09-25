@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "AdvancedCharacterMovement.h"
-#include "UnrealNetwork.h"
+#include "Net/UnrealNetwork.h"
 
 
 //void UAdvancedCharacterMovement::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & OutLifetimeProps) const

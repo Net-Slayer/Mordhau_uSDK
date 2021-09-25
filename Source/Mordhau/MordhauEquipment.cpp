@@ -6,7 +6,7 @@
 
 #include "LODSkeletalMeshComponent.h"
 
-#include "UnrealNetwork.h"
+#include "Net/UnrealNetwork.h"
 
 AMordhauEquipment::AMordhauEquipment()
 {

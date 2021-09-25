@@ -3,7 +3,7 @@
 #include "MordhauMovementComponent.h"
 #include "HumanMeshComponent.h"
 #include "MordhauCapsuleComponent.h"
-#include "UnrealNetwork.h"
+#include "Net/UnrealNetwork.h"
 
 AMordhauCharacter::AMordhauCharacter(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer

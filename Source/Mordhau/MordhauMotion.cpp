@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "MordhauMotion.h"
-#include "UnrealNetwork.h"
+#include "Net/UnrealNetwork.h"
 
 void UMordhauMotion::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & OutLifetimeProps) const
 {

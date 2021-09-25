@@ -141,49 +141,49 @@ UPROPERTY(EditAnywhere, BlueprintReadWrite)
 
 
  UFUNCTION(BlueprintCallable, Category = "GameSettingsFns")
- bool ShouldShowWatermark();
+ bool ShouldShowWatermark() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
- bool ShouldShowTips();
+ bool ShouldShowTips() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
- bool ShouldShowTargetInfo();
+ bool ShouldShowTargetInfo() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
- bool ShouldShowStatusBar();
+ bool ShouldShowStatusBar() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
- bool ShouldShowSpawnInfo();
+ bool ShouldShowSpawnInfo() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
- bool ShouldShowScoreFeed();
+ bool ShouldShowScoreFeed() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
- bool ShouldShowObservedDelay();
+ bool ShouldShowObservedDelay() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
- bool ShouldShowMatchmakingOverride();
+ bool ShouldShowMatchmakingOverride() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
- bool ShouldShowMatchmakingDebug();
+ bool ShouldShowMatchmakingDebug() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
- bool ShouldShowKillFeed();
+ bool ShouldShowKillFeed() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
- bool ShouldShowKilledBy();
+ bool ShouldShowKilledBy() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
- bool ShouldShowHUD();
+ bool ShouldShowHUD() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
- bool ShouldShowHitMarker();
+ bool ShouldShowHitMarker() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
- bool ShouldShowEquipment();
+ bool ShouldShowEquipment() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
- bool ShouldShowEmotesMenu();
+ bool ShouldShowEmotesMenu() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
- bool ShouldShowCrosshair();
+ bool ShouldShowCrosshair() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
- bool ShouldShowChatBox();
+ bool ShouldShowChatBox() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
- bool ShouldShowBlood();
+ bool ShouldShowBlood() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
- bool ShouldShowAnnouncements();
+ bool ShouldShowAnnouncements() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
- bool ShouldShowAmmo();
+ bool ShouldShowAmmo() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
- bool ShouldQuickSpawn();
+ bool ShouldQuickSpawn() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
- bool ShouldDrawTracers();
+ bool ShouldDrawTracers() const;
 
 
 UFUNCTION(BlueprintCallable, Category = "GameSettingsFns")
@@ -304,152 +304,154 @@ UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
 void SetAntiAliasing(int NewAntiAliasing);
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
 void SetAmbientOcclusion(int NewAmbientOcclusion);
+
+
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-float GetVideoVolume();
+float GetVideoVolume() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-struct FVector2D GetTracersStayTimeLimits();
+struct FVector2D GetTracersStayTimeLimits() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-float GetTracersStayTime();
+float GetTracersStayTime() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetThirdPersonDeathCamera();
+int GetThirdPersonDeathCamera() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetShowTips();
+int GetShowTips() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetShowTargetInfo();
+int GetShowTargetInfo() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetShowStatusBar();
+int GetShowStatusBar() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetShowSpawnInfo();
+int GetShowSpawnInfo() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetShowScoreFeed();
+int GetShowScoreFeed() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetShowObservedDelay();
+int GetShowObservedDelay() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetShowKillFeed();
+int GetShowKillFeed() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetShowKilledBy();
+int GetShowKilledBy() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetShowHitMarker();
+int GetShowHitMarker() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetShowEquipment();
+int GetShowEquipment() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetShowEmotesMenu();
+int GetShowEmotesMenu() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetShowCrosshair();
+int GetShowCrosshair() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetShowChatBox();
+int GetShowChatBox() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetShowAnnouncements();
+int GetShowAnnouncements() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetShowAmmo();
+int GetShowAmmo() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-FString GetServerBrowserServerName();
+FString GetServerBrowserServerName() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-bool GetServerBrowserNotFull();
+bool GetServerBrowserNotFull() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-bool GetServerBrowserNoPassword();
+bool GetServerBrowserNoPassword() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetServerBrowserMaxPing();
+int GetServerBrowserMaxPing() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-bool GetServerBrowserHasPlayers();
+bool GetServerBrowserHasPlayers() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-FString GetServerBrowserGameMode();
+FString GetServerBrowserGameMode() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetScreenSpaceReflections();
+int GetScreenSpaceReflections() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-struct FVector2D GetScreenPercentageLimits();
+struct FVector2D GetScreenPercentageLimits() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-float GetScreenPercentage();
+float GetScreenPercentage() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-float GetRagdollStayTimeLimit();
+float GetRagdollStayTimeLimit() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-float GetRagdollStayTime();
+float GetRagdollStayTime() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetRagdollFidelity();
+int GetRagdollFidelity() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetQuickSpawn();
+int GetQuickSpawn() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetNoTeamColorsOnGear();
+int GetNoTeamColorsOnGear() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-float GetMusicVolume();
+float GetMusicVolume() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-struct FVector2D GetMouseSmoothingLimits();
+struct FVector2D GetMouseSmoothingLimits() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-float GetMouseSmoothing();
+float GetMouseSmoothing() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-struct FVector2D GetMotionBlurLimits();
+struct FVector2D GetMotionBlurLimits() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-float GetMotionBlur();
+float GetMotionBlur() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetMaxRagdollsLimit();
+int GetMaxRagdollsLimit() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetMaxRagdolls();
+int GetMaxRagdolls() const;
 //UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-//EServerRegion GetMatchmakingRegion();
+//EServerRegion GetMatchmakingRegion() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-void GetMatchmakingGameModes(TArray<FString>& Modes);
+void GetMatchmakingGameModes(TArray<FString>& Modes) const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-float GetMasterVolume();
+float GetMasterVolume() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetLensFlares();
+int GetLensFlares() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-FString GetLanguage();
+FString GetLanguage() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetIndirectCapsuleShadows();
+int GetIndirectCapsuleShadows() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetHideWatermark();
+int GetHideWatermark() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetHideHUD();
+int GetHideHUD() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetHideDefaultLoadouts();
+int GetHideDefaultLoadouts() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-struct FVector2D GetHeadbobLimits();
+struct FVector2D GetHeadbobLimits() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-float GetHeadbob();
+float GetHeadbob() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetGore();
+int GetGore() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-struct FVector2D GetGammaLimits();
+struct FVector2D GetGammaLimits() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-float GetGamma();
+float GetGamma() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetFriendlyMarkers();
+int GetFriendlyMarkers() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-struct FVector2D GetFrameRateLimits();
+struct FVector2D GetFrameRateLimits() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-struct FVector2D GetFieldOfViewLimits();
+struct FVector2D GetFieldOfViewLimits() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-float GetFieldOfView();
+float GetFieldOfView() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-float GetEffectsVolume();
+float GetEffectsVolume() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetDrawTracers();
+int GetDrawTracers() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-float GetCurrentMotionBlur();
+float GetCurrentMotionBlur() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-float GetCurrentGamma();
+float GetCurrentGamma() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-float GetCurrentBloom();
+float GetCurrentBloom() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetCrosshairType();
+int GetCrosshairType() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetCharacterFidelity();
+int GetCharacterFidelity() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetCharacterCloth();
+int GetCharacterCloth() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-struct FVector2D GetCameraDistanceLimits();
+struct FVector2D GetCameraDistanceLimits() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-float GetCameraDistance();
+float GetCameraDistance() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-struct FVector2D GetBloomLimits();
+struct FVector2D GetBloomLimits() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-float GetBloom();
+float GetBloom() const;
 //UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
 //void GetAvailableLanguages(TArray<FString> AvailableLanguages);
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetAntiAliasing();
+int GetAntiAliasing() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetAmbientOcclusion();
+int GetAmbientOcclusion() const;
 UFUNCTION(BlueprintCallable, Category="GameSettingsFns")
-int GetActualCrosshairType();
+int GetActualCrosshairType() const;
 };

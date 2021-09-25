@@ -3,7 +3,7 @@
 #include "MordhauAIController.h"
 #include "MordhauCharacter.h"
 #include "Navigation/CrowdFollowingComponent.h"
-#include "UnrealNetwork.h"
+#include "Net/UnrealNetwork.h"
 
 
 

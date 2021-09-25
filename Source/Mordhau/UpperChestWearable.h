@@ -31,6 +31,13 @@ public:
 		uint8 DefaultArms;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		uint8 DefaultShoulders;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TArray<TSoftClassPtr<UObject>> LowerChestWearables;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TArray<TSoftClassPtr<UObject>> ArmsWearables;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TArray<TSoftClassPtr<UObject>> ShouldersWearables;
+
 
 	UFUNCTION(BlueprintCallable, Category = "UpperChestWearableFns")
 		int GetShouldersWearablesNum();

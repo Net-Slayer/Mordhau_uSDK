@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "MordhauActor.h"
-#include "UnrealNetwork.h"
+#include "Net/UnrealNetwork.h"
 #include "MordhauSceneComponent.h"
 
 AMordhauActor::AMordhauActor(const FObjectInitializer& ObjectInitializer)

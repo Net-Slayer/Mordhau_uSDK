@@ -620,6 +620,8 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Bytes")
 		uint8 LastReplicatedAmmo; //(ZeroConstructor, IsPlainOldData)
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Bytes")
+		uint8 Ammo; //(ZeroConstructor, IsPlainOldData)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Bytes")
 		uint8 MaxAmmo; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Bytes")
 		uint8 MaxAmmoWithoutQuiver; //(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)

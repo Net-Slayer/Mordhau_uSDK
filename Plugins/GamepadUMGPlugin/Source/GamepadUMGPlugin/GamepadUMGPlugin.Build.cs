@@ -5,6 +5,7 @@ public class GamepadUMGPlugin : ModuleRules
 {
     public GamepadUMGPlugin(ReadOnlyTargetRules Target) : base(Target)
     {
+        PrivatePCHHeaderFile = "Private/GamepadUMGPluginPrivatePCH.h";
         PublicDependencyModuleNames.AddRange(
 			new string[] { 
 				"Core", 

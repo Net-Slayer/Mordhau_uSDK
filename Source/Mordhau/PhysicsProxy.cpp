@@ -1,6 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "PhysicsProxy.h"
+#include "Chaos/Framework/PhysicsProxy.h"
 
 
 // Sets default values

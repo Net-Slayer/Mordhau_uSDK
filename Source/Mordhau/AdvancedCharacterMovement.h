@@ -17,8 +17,8 @@ class MORDHAU_API UAdvancedCharacterMovement : public UCharacterMovementComponen
 public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float                                              LastFallingCheckVelocityZ;                                // 0x07C0(0x0004) (ZeroConstructor, IsPlainOldData)
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	bool                                               bEnableServerDualMoveScopedMovementUpdates;               // 0x07C4(0x0001) (ZeroConstructor, IsPlainOldData)
+// 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+// 	bool                                               bEnableServerDualMoveScopedMovementUpdates;               // 0x07C4(0x0001) (ZeroConstructor, IsPlainOldData)
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	class UCrowdManager*                               CrowdManager;                                             // 0x07C8(0x0008) (ZeroConstructor, IsPlainOldData)
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)

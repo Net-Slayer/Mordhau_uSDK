@@ -751,6 +751,16 @@ enum class EEntityType : uint8
 // Structs Begin Here
 
 USTRUCT(BlueprintType, Blueprintable)
+struct FArrayOfActor
+{
+	GENERATED_USTRUCT_BODY()
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TArray<class AActor*> Actors; // 0x0000(0x0010) (Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+
+USTRUCT(BlueprintType, Blueprintable)
 struct FEquipmentPartEntry
 {
 	GENERATED_USTRUCT_BODY()
@@ -2573,4 +2583,69 @@ struct FCharMove
 	GENERATED_BODY()
 
 		struct FVector TargetLocation; // (IsPlainOldData)
+};
+
+// ScriptStruct Mordhau.SpawnableObjectInfo
+// 0x0098
+USTRUCT(BlueprintType, Blueprintable)
+struct FSpawnableObjectInfo
+{
+	GENERATED_BODY()
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	class UStaticMesh* Preview;								// 0x0000(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	class USkeletalMesh* PreviewSkeletal;					// 0x0008(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	uint8 Cost;												// 0x0010(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	struct FRotator RotationOffset;							// 0x0014(0x000C) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	struct FRotator RotationOffsetPreview;					// 0x0020(0x000C) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	struct FRotator NotHitRotationPreviewOffset;			// 0x002C(0x000C) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	struct FVector NotHitLocationPreviewOffset;				// 0x0038(0x000C) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	struct FVector ScalePreview;							// 0x0044(0x000C) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	class UClass* ActorClass;								// 0x0050(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	FName DisplayName;								// 0x0058(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	FName PlacableLimitName;							// 0x0060(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	int PlaceableLimitMax;									// 0x0068(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	struct FVector SpawnActorOffset;						// 0x006C(0x000C) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	bool bDoNotAttach;										// 0x0078(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	struct FVector BoxCheckExtents;							// 0x007C(0x000C) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	struct FVector BoxCheckOffset;							// 0x0088(0x000C) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+
+};
+
+// ScriptStruct Mordhau.SpawnablePlaneInfo
+// 0x0018
+USTRUCT(BlueprintType, Blueprintable)
+struct FSpawnablePlaneInfo
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
+	float                                              Forward;                                                   // 0x0000(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float                                              Backward;                                                  // 0x0004(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float                                              Left;                                                      // 0x0008(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float                                              Right;                                                     // 0x000C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float                                              RightXAxisPercentage;                                      // 0x0010(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float                                              LeftXAxisPercentage;                                       // 0x0014(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
 };

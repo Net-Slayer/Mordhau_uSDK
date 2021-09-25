@@ -7,9 +7,10 @@
 #include "GameFramework/GameMode.h"
 #include "Engine.h"
 #include "Mordhau.h"
-#include "UnrealNetwork.h"
+#include "Net/UnrealNetwork.h"
 #include "MordhauGameMode.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnRconStringCommand, const FString &, Payload);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FOnMessageBroadcasted, AActor*, Sender, const FString &, Msg, FName, Type);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnAfterLogin, APlayerController*, NewPlayer);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnBeforeLogout, AController*, Exiting);
@@ -131,6 +132,10 @@ public:
 	
 	UPROPERTY(BlueprintAssignable)
 	FOnBeforeLogout OnBeforeLogout; //(ZeroConstructor, InstancedReference, BlueprintAssignable)
+
+	UPROPERTY(BlueprintAssignable, Category = "MordhauGameMode|Rcon")
+		FOnRconStringCommand OnRconStringCommand;
+
 
 
 	UFUNCTION(BlueprintCallable)

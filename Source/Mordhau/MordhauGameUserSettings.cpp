@@ -5,113 +5,114 @@
 
 
 
-bool UMordhauGameUserSettings::ShouldShowWatermark()
+bool UMordhauGameUserSettings::ShouldShowWatermark() const
 {
 
 return 1;
 }
-bool UMordhauGameUserSettings::ShouldShowTips()
+bool UMordhauGameUserSettings::ShouldShowTips() const
 {
 
 return 1;
 }
-bool UMordhauGameUserSettings::ShouldShowTargetInfo()
+bool UMordhauGameUserSettings::ShouldShowTargetInfo() const
 {
 
 return 1;
 }
-bool UMordhauGameUserSettings::ShouldShowStatusBar()
+bool UMordhauGameUserSettings::ShouldShowStatusBar() const
+{ 
+
+return 1;
+}
+bool UMordhauGameUserSettings::ShouldShowSpawnInfo() const
 {
 
 return 1;
 }
-bool UMordhauGameUserSettings::ShouldShowSpawnInfo()
+bool UMordhauGameUserSettings::ShouldShowScoreFeed() const
 {
 
 return 1;
 }
-bool UMordhauGameUserSettings::ShouldShowScoreFeed()
+bool UMordhauGameUserSettings::ShouldShowObservedDelay() const
 {
 
 return 1;
 }
-bool UMordhauGameUserSettings::ShouldShowObservedDelay()
+bool UMordhauGameUserSettings::ShouldShowMatchmakingOverride() const
 {
 
 return 1;
 }
-bool UMordhauGameUserSettings::ShouldShowMatchmakingOverride()
+bool UMordhauGameUserSettings::ShouldShowMatchmakingDebug() const
 {
 
 return 1;
 }
-bool UMordhauGameUserSettings::ShouldShowMatchmakingDebug()
+bool UMordhauGameUserSettings::ShouldShowKillFeed() const
 {
 
 return 1;
 }
-bool UMordhauGameUserSettings::ShouldShowKillFeed()
+bool UMordhauGameUserSettings::ShouldShowKilledBy() const
 {
 
 return 1;
 }
-bool UMordhauGameUserSettings::ShouldShowKilledBy()
+bool UMordhauGameUserSettings::ShouldShowHUD() const
 {
 
 return 1;
 }
-bool UMordhauGameUserSettings::ShouldShowHUD()
+bool UMordhauGameUserSettings::ShouldShowHitMarker() const
 {
 
 return 1;
 }
-bool UMordhauGameUserSettings::ShouldShowHitMarker()
+bool UMordhauGameUserSettings::ShouldShowEquipment() const
 {
 
 return 1;
 }
-bool UMordhauGameUserSettings::ShouldShowEquipment()
+bool UMordhauGameUserSettings::ShouldShowEmotesMenu() const
 {
 
 return 1;
 }
-bool UMordhauGameUserSettings::ShouldShowEmotesMenu()
+bool UMordhauGameUserSettings::ShouldShowCrosshair() const
 {
 
 return 1;
 }
-bool UMordhauGameUserSettings::ShouldShowCrosshair()
+bool UMordhauGameUserSettings::ShouldShowChatBox() const
 {
 
 return 1;
 }
-bool UMordhauGameUserSettings::ShouldShowChatBox()
-{
-
-return 1;
-}
-bool UMordhauGameUserSettings::ShouldShowBlood()
+bool UMordhauGameUserSettings::ShouldShowBlood() const
 {
 
 
 return 1;
 }
-bool UMordhauGameUserSettings::ShouldShowAnnouncements()
+bool UMordhauGameUserSettings::ShouldShowAnnouncements() const
 {
 
 return 1;
 }
-bool UMordhauGameUserSettings::ShouldShowAmmo()
+bool UMordhauGameUserSettings::ShouldShowAmmo() const
 {
 
 return 1;
 }
-bool UMordhauGameUserSettings::ShouldQuickSpawn()
+
+bool UMordhauGameUserSettings::ShouldQuickSpawn() const
 {
 
 return 1;
 }
-bool UMordhauGameUserSettings::ShouldDrawTracers()
+bool UMordhauGameUserSettings::ShouldDrawTracers() const
 {
 
 return 1;
@@ -236,297 +237,297 @@ void UMordhauGameUserSettings::SetAntiAliasing(int NewAntiAliasing)
 void UMordhauGameUserSettings::SetAmbientOcclusion(int NewAmbientOcclusion)
 {}
 
-float UMordhauGameUserSettings::GetVideoVolume()
+float UMordhauGameUserSettings::GetVideoVolume() const
 {
 	return 1;
 }
-struct FVector2D UMordhauGameUserSettings::GetTracersStayTimeLimits()
+struct FVector2D UMordhauGameUserSettings::GetTracersStayTimeLimits() const
 {
 	return { 1, 1 };
 }
-float UMordhauGameUserSettings::GetTracersStayTime()
+float UMordhauGameUserSettings::GetTracersStayTime() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetThirdPersonDeathCamera()
+int UMordhauGameUserSettings::GetThirdPersonDeathCamera() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetShowTips()
+int UMordhauGameUserSettings::GetShowTips() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetShowTargetInfo()
+int UMordhauGameUserSettings::GetShowTargetInfo() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetShowStatusBar()
+int UMordhauGameUserSettings::GetShowStatusBar() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetShowSpawnInfo()
+int UMordhauGameUserSettings::GetShowSpawnInfo() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetShowScoreFeed()
+int UMordhauGameUserSettings::GetShowScoreFeed() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetShowObservedDelay()
+int UMordhauGameUserSettings::GetShowObservedDelay() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetShowKillFeed()
+int UMordhauGameUserSettings::GetShowKillFeed() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetShowKilledBy()
+int UMordhauGameUserSettings::GetShowKilledBy() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetShowHitMarker()
+int UMordhauGameUserSettings::GetShowHitMarker() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetShowEquipment()
+int UMordhauGameUserSettings::GetShowEquipment() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetShowEmotesMenu()
+int UMordhauGameUserSettings::GetShowEmotesMenu() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetShowCrosshair()
+int UMordhauGameUserSettings::GetShowCrosshair() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetShowChatBox()
+int UMordhauGameUserSettings::GetShowChatBox() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetShowAnnouncements()
+int UMordhauGameUserSettings::GetShowAnnouncements() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetShowAmmo()
+int UMordhauGameUserSettings::GetShowAmmo() const
 {
 	return 1;
 }
-FString UMordhauGameUserSettings::GetServerBrowserServerName()
+FString UMordhauGameUserSettings::GetServerBrowserServerName() const
 {
 	return "1";
 }
-bool UMordhauGameUserSettings::GetServerBrowserNotFull()
+bool UMordhauGameUserSettings::GetServerBrowserNotFull() const
 {
 	return 1;
 }
-bool UMordhauGameUserSettings::GetServerBrowserNoPassword()
+bool UMordhauGameUserSettings::GetServerBrowserNoPassword() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetServerBrowserMaxPing()
+int UMordhauGameUserSettings::GetServerBrowserMaxPing() const
 {
 	return 1;
 }
-bool UMordhauGameUserSettings::GetServerBrowserHasPlayers()
+bool UMordhauGameUserSettings::GetServerBrowserHasPlayers() const
 {
 	return 1;
 }
-FString UMordhauGameUserSettings::GetServerBrowserGameMode()
+FString UMordhauGameUserSettings::GetServerBrowserGameMode() const
 {
 	return "1";
 }
-int UMordhauGameUserSettings::GetScreenSpaceReflections()
+int UMordhauGameUserSettings::GetScreenSpaceReflections() const
 {
 	return 1;
 }
-struct FVector2D UMordhauGameUserSettings:: GetScreenPercentageLimits()
+struct FVector2D UMordhauGameUserSettings:: GetScreenPercentageLimits() const
 {
 	return {1, 1};
 }
-float UMordhauGameUserSettings::GetScreenPercentage()
+float UMordhauGameUserSettings::GetScreenPercentage() const
 {
 	return 1;
 }
-float UMordhauGameUserSettings::GetRagdollStayTimeLimit()
+float UMordhauGameUserSettings::GetRagdollStayTimeLimit() const
 {
 	return 1;
 }
-float UMordhauGameUserSettings::GetRagdollStayTime()
+float UMordhauGameUserSettings::GetRagdollStayTime() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetRagdollFidelity()
+int UMordhauGameUserSettings::GetRagdollFidelity() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetQuickSpawn()
+int UMordhauGameUserSettings::GetQuickSpawn() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetNoTeamColorsOnGear()
+int UMordhauGameUserSettings::GetNoTeamColorsOnGear() const
 {
 	return 1;
 }
-float UMordhauGameUserSettings::GetMusicVolume()
+float UMordhauGameUserSettings::GetMusicVolume() const
 {
 	return 1;
 }
-struct FVector2D UMordhauGameUserSettings:: GetMouseSmoothingLimits()
+struct FVector2D UMordhauGameUserSettings:: GetMouseSmoothingLimits() const
 {
 	return {1, 1};
 }
-float UMordhauGameUserSettings::GetMouseSmoothing()
+float UMordhauGameUserSettings::GetMouseSmoothing() const
 {
 	return 1;
 }
-struct FVector2D UMordhauGameUserSettings:: GetMotionBlurLimits()
+struct FVector2D UMordhauGameUserSettings:: GetMotionBlurLimits() const
 {
 	return {1, 1};
 }
-float UMordhauGameUserSettings::GetMotionBlur()
+float UMordhauGameUserSettings::GetMotionBlur() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetMaxRagdollsLimit()
+int UMordhauGameUserSettings::GetMaxRagdollsLimit() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetMaxRagdolls()
+int UMordhauGameUserSettings::GetMaxRagdolls() const
 {
 	return 1;
 }
-//EServerRegion GetMatchmakingRegion()
+//EServerRegion GetMatchmakingRegion() const
 
-void UMordhauGameUserSettings::GetMatchmakingGameModes(TArray<FString>& Modes)
+void UMordhauGameUserSettings::GetMatchmakingGameModes(TArray<FString>& Modes) const
 {
 
 }
-float UMordhauGameUserSettings::GetMasterVolume()
+float UMordhauGameUserSettings::GetMasterVolume() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetLensFlares()
+int UMordhauGameUserSettings::GetLensFlares() const
 {
 	return 1;
 }
-FString UMordhauGameUserSettings::GetLanguage()
+FString UMordhauGameUserSettings::GetLanguage() const
 {
 	return "1";
 }
-int UMordhauGameUserSettings::GetIndirectCapsuleShadows()
+int UMordhauGameUserSettings::GetIndirectCapsuleShadows() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetHideWatermark()
+int UMordhauGameUserSettings::GetHideWatermark() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetHideHUD()
+int UMordhauGameUserSettings::GetHideHUD() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetHideDefaultLoadouts()
+int UMordhauGameUserSettings::GetHideDefaultLoadouts() const
 {
 	return 1;
 }
-struct FVector2D UMordhauGameUserSettings:: GetHeadbobLimits()
+struct FVector2D UMordhauGameUserSettings:: GetHeadbobLimits() const
 {
 	return {1, 1};
 }
-float UMordhauGameUserSettings::GetHeadbob()
+float UMordhauGameUserSettings::GetHeadbob() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetGore()
+int UMordhauGameUserSettings::GetGore() const
 {
 	return 1;
 }
-struct FVector2D UMordhauGameUserSettings:: GetGammaLimits()
+struct FVector2D UMordhauGameUserSettings:: GetGammaLimits() const
 {
 	return {1, 1};
 }
-float UMordhauGameUserSettings::GetGamma()
+float UMordhauGameUserSettings::GetGamma() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetFriendlyMarkers()
+int UMordhauGameUserSettings::GetFriendlyMarkers() const
 {
 	return 1;
 }
-struct FVector2D UMordhauGameUserSettings:: GetFrameRateLimits()
+struct FVector2D UMordhauGameUserSettings:: GetFrameRateLimits() const
 {
 	return {1, 1};
 }
-struct FVector2D UMordhauGameUserSettings:: GetFieldOfViewLimits()
+struct FVector2D UMordhauGameUserSettings:: GetFieldOfViewLimits() const
 {
 	return {1, 1};
 }
-float UMordhauGameUserSettings::GetFieldOfView()
+float UMordhauGameUserSettings::GetFieldOfView() const
 {
 	return 1;
 }
-float UMordhauGameUserSettings::GetEffectsVolume()
+float UMordhauGameUserSettings::GetEffectsVolume() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetDrawTracers()
+int UMordhauGameUserSettings::GetDrawTracers() const
 {
 	return 1;
 }
-float UMordhauGameUserSettings::GetCurrentMotionBlur()
+float UMordhauGameUserSettings::GetCurrentMotionBlur() const
 {
 	return 1;
 }
-float UMordhauGameUserSettings::GetCurrentGamma()
+float UMordhauGameUserSettings::GetCurrentGamma() const
 {
 	return 1;
 }
-float UMordhauGameUserSettings::GetCurrentBloom()
+float UMordhauGameUserSettings::GetCurrentBloom() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetCrosshairType()
+int UMordhauGameUserSettings::GetCrosshairType() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetCharacterFidelity()
+int UMordhauGameUserSettings::GetCharacterFidelity() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetCharacterCloth()
+int UMordhauGameUserSettings::GetCharacterCloth() const
 {
 	return 1;
 }
-struct FVector2D UMordhauGameUserSettings:: GetCameraDistanceLimits()
+struct FVector2D UMordhauGameUserSettings:: GetCameraDistanceLimits() const
 {
 	return {1, 1};
 }
-float UMordhauGameUserSettings::GetCameraDistance()
+float UMordhauGameUserSettings::GetCameraDistance() const
 {
 	return 1;
 }
-struct FVector2D UMordhauGameUserSettings:: GetBloomLimits()
+struct FVector2D UMordhauGameUserSettings:: GetBloomLimits() const
 {
 	return {1, 1};
 }
-float UMordhauGameUserSettings::GetBloom()
+float UMordhauGameUserSettings::GetBloom() const
 {
 	return 1;
 }
-//void UMordhauGameUserSettings::GetAvailableLanguages(TArray<FString> AvailableLanguages)
+//void UMordhauGameUserSettings::GetAvailableLanguages(TArray<FString> AvailableLanguages) const
 //{
 //
 //}
-int UMordhauGameUserSettings::GetAntiAliasing()
+int UMordhauGameUserSettings::GetAntiAliasing() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetAmbientOcclusion()
+int UMordhauGameUserSettings::GetAmbientOcclusion() const
 {
 	return 1;
 }
-int UMordhauGameUserSettings::GetActualCrosshairType()
+int UMordhauGameUserSettings::GetActualCrosshairType() const
 {
 	return 1;
 }
