@@ -10,7 +10,7 @@
 #include "Net/UnrealNetwork.h"
 #include "MordhauGameMode.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParam(FOnRconStringCommand, const FString &, Payload, const int32, ClientId );
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnRconStringCommand, const FString &, Payload, const int32, ClientId);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FOnMessageBroadcasted, AActor*, Sender, const FString &, Msg, FName, Type);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnAfterLogin, APlayerController*, NewPlayer);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnBeforeLogout, AController*, Exiting);
