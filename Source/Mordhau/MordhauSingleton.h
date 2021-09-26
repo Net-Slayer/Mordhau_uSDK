@@ -31,14 +31,48 @@ public:
 		TArray<FString> RandomBotNames; //(Edit, ZeroConstructor)
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		uint8 DefaultHead; //(Edit, ZeroConstructor, IsPlainOldData)
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		uint8 DefaultUpperChest; //(Edit, ZeroConstructor, IsPlainOldData)
+	TArray<TSoftClassPtr<UObject>> HeadWearables;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		uint8 DefaultLegs; //(Edit, ZeroConstructor, IsPlainOldData)
+	TArray<TSoftClassPtr<UObject>> OriginalHeadWearables;
+
+
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		TArray<class UClass*> MaleFaces; //(Edit, BlueprintVisible, ZeroConstructor)
+	uint8 DefaultUpperChest; //(Edit, ZeroConstructor, IsPlainOldData)
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		TArray<class UClass*> FemaleFaces; //(Edit, BlueprintVisible, ZeroConstructor)
+	TArray<TSoftClassPtr<UObject>> UpperChestWearables; 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<TSoftClassPtr<UObject>> OriginalUpperChestWearables;
+
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	uint8 DefaultLegs; //(Edit, ZeroConstructor, IsPlainOldData)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<TSoftClassPtr<UObject>> LegsWearables; 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<TSoftClassPtr<UObject>> OriginalLegsWearables;
+
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<TSoftClassPtr<UObject>> Equipment; 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<TSoftClassPtr<UObject>> OriginalEquipment;
+
+
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<class UClass*> MaleFaces; //(Edit, BlueprintVisible, ZeroConstructor)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<class UClass*> FemaleFaces; //(Edit, BlueprintVisible, ZeroConstructor)
+
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<TSoftClassPtr<UObject>> Voices; 
+
+
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		TArray<TSubclassOf<UEmblem>> Emblems; //(Edit, BlueprintVisible, ZeroConstructor)
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
