@@ -8,93 +8,149 @@
 #include "ParryMotion.generated.h"
 
 /**
- * 
- */
+*
+*/
 UCLASS(Blueprintable)
 class MORDHAU_API UParryMotion : public UMordhauMotion
 {
 	GENERATED_BODY()
 public:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	TMap<class UMordhauMotion*, float> BlockedAttacks; // 0x00A8(0x0050) (NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	TWeakObjectPtr<class AMordhauCharacter> LastBlockedCharacter; // 0x00F8(0x0008) (ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	FAnglingSpineSpaceAdditive AngleAdditive; // 0x0100(0x0318) (Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	FPerspectiveAnimMontage Animation; // 0x0418(0x0010) (Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	FPerspectiveAnimMontage AltAnimation; // 0x0428(0x0010) (Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	FPerspectiveBlendSpaceBase AnimationAdditive; // 0x0438(0x0010) (Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	FPerspectiveBlendSpaceBase ParriedAdditive; // 0x0448(0x0010) (Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	FPerspectiveBlendSpaceBase AltParriedAdditive; // 0x0458(0x0010) (Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	bool bLegacyAnimationPlayingMethod; // 0x0468(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	bool bDetectedAnyNonFriendlyAttack; // 0x0470(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	bool bIsShieldWall; // 0x0471(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	bool bIsMissParry; // 0x0472(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float ChamberFTPExtraStaminaDrain; // 0x0474(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float GiveMissParryIfFlinchedBeforeDuration; // 0x0478(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float MissParryRecoveryTime; // 0x047C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float ShieldWallRaiseTime; // 0x0480(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float ShieldWallRaiseTimeAnimOffset; // 0x0484(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float MaxParryAngle; // 0x0488(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float MaxParryWeaponAngle; // 0x048C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float HeldBlockMemoryDuration; // 0x0490(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float TimedBlockMemoryDuration; // 0x0494(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float ParryInFlinchDurationMax; // 0x0498(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float EasyParryDuration; // 0x049C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	int EasyParryStaminaCost; // 0x04A0(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float HeldRiposteWindowExtra; // 0x04A4(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float NonHeldParryExtensionAndRiposteWindowExtra; // 0x04A8(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	EMovementRestriction SuccessfulParryRecoveryMovementRestriction; // 0x04AC(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	EMovementRestriction FailedParryRecoveryMovementRestriction; // 0x04AD(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	class UMeleeWeaponAnimationProfile* MWAP; // 0x04B0(0x0008) (ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float RiposteWindowBase; // 0x04BC(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float ParryMissFadeOut; // 0x04C0(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float ParryMissFadeOut1P; // 0x04C4(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	class USoundCue* ParryMissLocalSoundCue; // 0x04C8(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float ParryFailPlayRate; // 0x04D0(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float ParryFailFadeOut; // 0x04D4(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float ParryFailPlayRate1P; // 0x04D8(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float ParryFailFadeOut1P; // 0x04DC(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float HeldParryFailPlayRate; // 0x04E0(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float HeldParryFailFadeOut; // 0x04E4(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float HeldParryFailPlayRate1P; // 0x04E8(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float HeldParryFailFadeOut1P; // 0x04EC(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float ShieldWallPlayRate; // 0x04F0(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float ShieldWallFadeOut; // 0x04F4(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float ShieldWallPlayRate1P; // 0x04F8(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float ShieldWallFadeOut1P; // 0x04FC(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float MinimumHeldParryTime; // 0x0500(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float MinimumHeldRiposteParryTime; // 0x0504(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float ParryRecoveryTime; // 0x0508(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float HeldParryRecoveryTime; // 0x050C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float ShieldWallRecoveryTime; // 0x0510(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float ParrySuccessRecoveryTime; // 0x0514(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float HeldParrySuccessRecoveryTime; // 0x0518(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float ParryUpTime; // 0x051C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	int BlockStaminaRecover; // 0x0520(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float ShieldWallStaminaDrainFactor; // 0x0524(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float ShieldWallSpeedFactor; // 0x0528(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float StunInHeldRecoveryWindow; // 0x052C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	unsigned char TotalBlocks; // 0x0540(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	bool bIsBlockHoldable; // 0x0541(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	EParryStage Stage; // 0x0542(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float ParryEnd; // 0x0544(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float RiposteWindowStart; // 0x054C(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	class UAnimMontage* Montage; // 0x0550(0x0008) (ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	TWeakObjectPtr<class AMordhauWeapon> WeaponPtr; // 0x0558(0x0008) (ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	bool bHasQueuedMove; // 0x0560(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float QueuedMoveTime; // 0x0564(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float QueuedAngle; // 0x0568(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	EAttackMove QueuedMove; // 0x056C(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-	TMap<class UMordhauMotion*, float>                 BlockedAttacks;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              HeldBlockMemoryDuration;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              TimedBlockMemoryDuration;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              EasyParryDuration;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int                                                EasyParryStaminaCost;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              HeldRiposteWindowExtra;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              NonHeldParryExtensionAndRiposteWindowExtra;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	EMovementRestriction                               SuccessfulParryRecoveryMovementRestriction;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	EMovementRestriction                               FailedParryRecoveryMovementRestriction;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UMeleeWeaponAnimationProfile*                MWAP;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
 
-	float                                              RiposteWindowBase;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              ParryFailPlayRate;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              ParryFailFadeOut;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              ParryFailPlayRate1P;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              ParryFailFadeOut1P;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              HeldParryFailPlayRate;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              HeldParryFailFadeOut;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              HeldParryFailPlayRate1P;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              HeldParryFailFadeOut1P;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              MinimumHeldParryTime;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              ParryRecoveryTime;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              HeldParryRecoveryTime;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              ParrySuccessRecoveryTime;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              HeldParrySuccessRecoveryTime;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              ParryUpTime;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int                                                BlockStaminaRecover;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	uint8                                     TotalBlocks;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool                                               bIsBlockHoldable;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	EParryStage                                        Stage;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-
-	float                                              ParryEnd;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              RiposteWindowStart;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UAnimMontage*                                Montage;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TWeakObjectPtr<class AMordhauWeapon>               WeaponPtr;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool                                               bHasQueuedMove;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-
-	float                                              QueuedMoveTime;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              QueuedAngle;
-UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	EAttackMove                                        QueuedMove;
-
-	
-	
-	
 };

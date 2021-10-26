@@ -101,6 +101,11 @@ void AMordhauPlayerController::ClientReceiveScore(uint8 ReasonAndParam, int16 Sc
 {
 }
 
+void AMordhauPlayerController::ClientReceiveMessage_Implementation(const FString& Message)
+{
+
+}
+
 void AMordhauPlayerController::ClientMessageBP(const FString & String)
 {
 }

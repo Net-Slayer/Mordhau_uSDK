@@ -15,9 +15,10 @@ class MORDHAU_API UArmsWearable : public UMordhauWearable
 	GENERATED_BODY()
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		struct FVector ArmsBouncyLimits;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		uint8 DefaultHands;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TArray<TSoftClassPtr> HandsWearables;
+
 
 	UFUNCTION(BlueprintCallable, Category = "ArmsWearableFns")
 		int GetHandsWearablesNum();

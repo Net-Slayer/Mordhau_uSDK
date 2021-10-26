@@ -7,7 +7,7 @@
 #include "MapCameraActor.generated.h"
 
 UCLASS()
-class MORDHAU_API AMapCameraActor : public AActor
+class MORDHAU_API AMapCameraActor : public ACameraActor
 {
 	GENERATED_BODY()
 	

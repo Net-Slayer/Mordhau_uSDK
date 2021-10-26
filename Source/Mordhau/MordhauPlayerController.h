@@ -399,7 +399,7 @@ public:
 		void ClientReceiveScoreBP(EScoreFeedReason Reason, uint8 ReasonParam, float ScoreAmount, class AMordhauPlayerState* AssociatedPlayer);
 	UFUNCTION()
 		void ClientReceiveScore(uint8 ReasonAndParam, int16 ScoreAmount, class AMordhauPlayerState* AssociatedPlayer);
-	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = "MordhauControllerFns")
+	UFUNCTION(BlueprintCallable, Client, Reliable, Category = "MordhauControllerFns")
 		void ClientReceiveMessage(const FString& Message);
 
 	UFUNCTION(BlueprintCallable, Category = "MordhauControllerFns")
