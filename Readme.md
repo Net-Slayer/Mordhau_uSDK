@@ -19,7 +19,7 @@ Build 10 additions + all placeholders - TheMattman
 Secondary Dump - Cswic
 
 A huge thank you to previous uSDK Contributers for your work:
-- Cswicm
+- Cswic
 - 2Cool
 - TheMattman
 - BattleField Recapitator
